@@ -1,6 +1,7 @@
 # Dependencies and generated build output
 **/node_modules/
 **/dist/
+dist-ssr/
 .tools/
 
 # Local environment files
@@ -11,3 +12,9 @@
 *.log
 .DS_Store
 .vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
