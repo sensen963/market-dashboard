@@ -1,0 +1,810 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="C#経験者のためのTypeScript＋React 30時間実装教材。30コマ、章末テスト、ローカル演習。"><title>TypeScript × React｜C#経験者の30時間実装コース</title><style>
+:root{--bg:#f5f4ef;--paper:#fff;--ink:#1b2b37;--muted:#54636d;--line:#dce1df;--accent:#086d66;--soft:#e8f4ef;--amber:#9d5e10;--nav:#122e36}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif}a{color:var(--accent);text-underline-offset:3px}button,input,textarea,select{font:inherit}button,.button{border:1px solid #bccac7;border-radius:7px;background:white;color:var(--ink);padding:7px 13px;cursor:pointer;text-decoration:none;display:inline-block}button:hover,.button:hover{background:var(--soft)}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #dd9c30;outline-offset:3px}header.hero{background:var(--nav);color:white;padding:60px 7vw 50px;margin-left:290px}.eyebrow{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#79ccbc;font-weight:700}h1{font-size:clamp(28px,3.5vw,48px);line-height:1.35;margin:16px 0}header p{max-width:770px;color:#d4e2e5}header .pills{display:flex;gap:12px;flex-wrap:wrap}.pill{border:1px solid #47636a;border-radius:100px;padding:4px 13px;font-size:13px}.sidebar{position:fixed;left:0;top:0;bottom:0;width:290px;background:#fcfcf9;border-right:1px solid var(--line);padding:24px 20px;overflow:auto;z-index:5}.brand{font-weight:800;letter-spacing:.06em;font-size:18px}.sidebar label{font-size:13px;color:var(--muted)}#search{width:100%;padding:9px;border:1px solid var(--line);border-radius:6px;margin:5px 0 12px}.sidebar nav a{display:block;padding:5px 7px;font-size:13px;text-decoration:none;border-radius:4px}.sidebar nav a:hover{background:var(--soft)}.sidebar nav .chapter-link{font-weight:700;margin-top:12px;font-size:14px}.sidebar nav a.done:before{content:"✓ ";color:var(--accent)}.progressbox{font-size:13px;margin:14px 0}progress{width:100%;height:8px;accent-color:var(--accent)}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.toolbar button,.toolbar .button{font-size:13px}.sidebar .toolbar{gap:6px}.sidebar .toolbar button{padding:5px 8px}main{margin-left:290px;padding:36px clamp(20px,5vw,80px) 90px;max-width:1450px}section.panel,.lesson,.exam{background:var(--paper);padding:clamp(22px,3vw,38px);border:1px solid var(--line);border-radius:12px;margin-bottom:28px;box-shadow:0 2px 0 #233c3b04}h2{font-size:25px;line-height:1.5;margin:0 0 20px}h3{font-size:20px;line-height:1.5;margin:0 0 14px}h4{font-size:15px;color:var(--accent);margin:26px 0 8px}p{margin:12px 0}strong{font-weight:750}.small,.sources{font-size:13px;color:var(--muted)}.sources{padding-top:14px;border-top:1px solid var(--line);line-height:1.9}.chapter-head{padding:24px 4px 12px}.chapter-head .num{font-size:13px;color:var(--accent);font-weight:800;letter-spacing:.12em}.chapter-head p{color:var(--muted)}.lesson-head{display:flex;align-items:flex-start;gap:16px}.hour{background:var(--soft);color:var(--accent);padding:8px 10px;border-radius:8px;font-weight:800;white-space:nowrap;font-size:14px}.lesson h3{margin:3px 0}.goal{border-left:3px solid var(--accent);padding:9px 16px;background:#f6faf8}.timing{font-size:12px;color:var(--muted);margin:10px 0 20px}.codewrap{position:relative;margin:18px 0}pre{background:#172c36;color:#e0edea;border-radius:8px;padding:43px 20px 20px;overflow:auto;line-height:1.7;font-size:13px;tab-size:2}pre code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre}p code,td code{background:var(--soft);padding:2px 5px;border-radius:3px;font-size:.9em}.copy{position:absolute;right:9px;top:7px;font-size:11px;padding:2px 8px;background:#294550;color:#e8f1ef;border-color:#49616a}.copy:hover{color:var(--ink)}.callout{background:var(--soft);padding:16px 20px;border-radius:8px;margin:18px 0}.task{border-left:3px solid #d29e51;padding-left:18px}.check{font-size:14px;color:#245c4d}details{border:1px solid var(--line);border-radius:8px;padding:13px 16px;margin:18px 0}summary{cursor:pointer;font-weight:650}details[open] summary{margin-bottom:12px}.answer{background:#f8fbf9}.ai{white-space:pre-wrap;font-size:14px}.notes{width:100%;min-height:86px;border:1px solid var(--line);border-radius:7px;padding:10px;resize:vertical;display:block;margin-top:6px}.completion{display:flex;gap:9px;align-items:center;font-size:14px;margin-top:17px}.completion input{width:18px;height:18px;accent-color:var(--accent)}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;padding:11px 12px;border-bottom:1px solid var(--line)}th{background:#f0f5f1;font-weight:700}.tablewrap{overflow:auto}.exam{border-top:4px solid var(--accent)}fieldset{border:0;border-bottom:1px solid var(--line);padding:16px 0;margin:0}legend{font-weight:650;padding-top:16px}fieldset label{display:flex;gap:10px;align-items:baseline;margin:7px 0;padding:7px 10px;border-radius:6px;background:#f6f7f5}fieldset input{accent-color:var(--accent)}.feedback{padding:10px 12px;border-radius:5px;margin:10px 0;font-size:14px;background:#edf6f1}.feedback.wrong{background:#fff2df;color:#784817}.quizresult{font-weight:700;padding:10px 0}.rubric input{width:62px;padding:4px;border:1px solid #aebbb8;border-radius:4px}.status{font-size:12px;color:var(--muted);line-height:1.6}#toast{position:fixed;bottom:20px;right:20px;max-width:440px;padding:12px 20px;background:#123c3c;color:white;border-radius:8px;z-index:10;display:none}.hide{display:none!important}.skip{position:fixed;left:8px;top:-80px;background:white;z-index:50;padding:12px}.skip:focus{top:8px}.sectionnav{display:flex;justify-content:space-between;margin-top:20px;font-size:13px}.architecture{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.architecture div{background:#f1f7f3;border-radius:8px;padding:14px}.architecture strong{display:block}.badge{font-size:12px;color:var(--muted)}.print-only{display:none}
+@media(max-width:1050px){.sidebar{width:240px;padding:20px 14px}main,header.hero{margin-left:240px}main{padding:28px 24px}header.hero{padding:38px 28px}}
+@media(max-width:760px){.sidebar{position:relative;width:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}.sidebar nav{max-height:240px;overflow:auto;display:none}.sidebar nav.expanded{display:block}.sidebar .progressbox{margin:8px 0}.sidebar .toolbar{margin:10px 0}main,header.hero{margin-left:0}main{padding:18px 12px}.lesson,.exam,section.panel{padding:22px 17px}header.hero{padding:30px 24px}h2{font-size:23px}.architecture{grid-template-columns:1fr}pre{font-size:12px}.lesson-head{gap:10px}#navToggle{display:inline-block!important}}
+@media print{body{background:white;font-size:10pt;line-height:1.6}.sidebar,.toolbar,.copy,.completion,.noteslabel,.notes,.grade,.quizresult,#toast,.sectionnav,.feedback,.rubric input,.skip{display:none!important}main,header.hero{margin-left:0;max-width:none;padding:0}header.hero{background:white;color:#132d35;padding:20px 0;border-bottom:2px solid #086d66;break-after:page}header p{color:#233}.pill{border-color:#aaa}.eyebrow{color:#086d66}.lesson,.exam,section.panel{box-shadow:none;border:0;border-radius:0;padding:12px 0;margin:0 0 20px;display:block!important}.chapter-head{break-before:page}h2,h3,h4,summary{break-after:avoid}pre{white-space:pre-wrap;background:#f1f3f3;color:#172c36;font-size:8pt;padding:12px;border:1px solid #ccd;overflow:visible}pre code{white-space:pre-wrap;overflow-wrap:anywhere}tr,fieldset{break-inside:avoid}a{color:#184e4c;text-decoration:none}details{break-inside:auto}.print-only{display:block}.hide{display:block!important}.sources{font-size:8pt}.answer{background:white}.codewrap{break-inside:auto}}
+</style></head><body><a class="skip" href="#intro">本文へ移動</a><aside class="sidebar"><div class="brand">TS × REACT</div><div class="badge">C#経験者の30時間実装コース</div><div class="progressbox"><span id="progressText">0 / 30 コマ完了</span><progress id="progress" max="30" value="0"></progress></div><label for="search">コマを検索</label><input id="search" type="search" placeholder="例：unknown / Effect / H13"><div id="searchCount" class="status" aria-live="polite"></div><button id="navToggle" style="display:none" aria-expanded="false" aria-controls="nav">目次を開く</button><nav id="nav" aria-label="教材目次"><a href="#intro">使い方・到達目標</a><a href="#spec">最終成果物の仕様</a><a href="#setup">ローカルセットアップ</a><a class="chapter-link" href="#chapter-01">01　TypeScriptの実行モデル</a><a class="lesson-link" data-n="1" href="#h01">H01 実行時と型検査を切り離す</a><a class="lesson-link" data-n="2" href="#h02">H02 構造的型付け・余剰プロパティ・推論</a><a class="lesson-link" data-n="3" href="#h03">H03 null・undefined・unknownを境界で扱う</a><a class="lesson-link" data-n="4" href="#h04">H04 判別可能なUnionとnever</a><a class="lesson-link" data-n="5" href="#h05">H05 readonly・分割代入・配列操作</a><a href="#exam-01">章末テスト 01</a><a class="chapter-link" href="#chapter-02">02　型と境界からドメインへ</a><a class="lesson-link" data-n="6" href="#h06">H06 ジェネリクス・keyof・型の導出</a><a class="lesson-link" data-n="7" href="#h07">H07 関数・クロージャ・ES Modules</a><a class="lesson-link" data-n="8" href="#h08">H08 Promise・async・キャンセル</a><a class="lesson-link" data-n="9" href="#h09">H09 外部JSONを検証済みモデルに変える</a><a class="lesson-link" data-n="10" href="#h10">H10 絞り込み・ソートを純粋関数にする</a><a href="#exam-02">章末テスト 02</a><a class="chapter-link" href="#chapter-03">03　Reactのレンダリングモデル</a><a class="lesson-link" data-n="11" href="#h11">H11 JSX・Props・コンポーネントの型</a><a class="lesson-link" data-n="12" href="#h12">H12 Render・Commit・純粋性</a><a class="lesson-link" data-n="13" href="#h13">H13 useState・スナップショット・更新キュー</a><a class="lesson-link" data-n="14" href="#h14">H14 制御された入力とイベント型</a><a class="lesson-link" data-n="15" href="#h15">H15 派生値・状態の持ち上げ・安定したkey</a><a href="#exam-03">章末テスト 03</a><a class="chapter-link" href="#chapter-04">04　副作用と状態遷移</a><a class="lesson-link" data-n="16" href="#h16">H16 useEffectは外部システムとの同期</a><a class="lesson-link" data-n="17" href="#h17">H17 通信状態と古いレスポンスの競合</a><a class="lesson-link" data-n="18" href="#h18">H18 useReducerで比較選択の遷移を集める</a><a class="lesson-link" data-n="19" href="#h19">H19 カスタムHook・Context・Refの境界</a><a class="lesson-link" data-n="20" href="#h20">H20 永続化・復元・壊れた保存データ</a><a href="#exam-04">章末テスト 04</a><a class="chapter-link" href="#chapter-05">05　比較画面と実装の仕上げ</a><a class="lesson-link" data-n="21" href="#h21">H21 比較用の時系列を変換する</a><a class="lesson-link" data-n="22" href="#h22">H22 SVGとコンポーネント合成</a><a class="lesson-link" data-n="23" href="#h23">H23 useMemo・参照同一性・計測</a><a class="lesson-link" data-n="24" href="#h24">H24 使える操作・空状態・キーボード</a><a class="lesson-link" data-n="25" href="#h25">H25 統合して責務を整理する</a><a href="#exam-05">章末テスト 05</a><a class="chapter-link" href="#chapter-06">06　検証と最終実技</a><a class="lesson-link" data-n="26" href="#h26">H26 Vitestで純粋関数を検証する</a><a class="lesson-link" data-n="27" href="#h27">H27 Testing Libraryでユーザー操作を検証する</a><a class="lesson-link" data-n="28" href="#h28">H28 競合・エラー・復元の回帰テスト</a><a class="lesson-link" data-n="29" href="#h29">H29 型検査・ビルド・ローカル配布</a><a class="lesson-link" data-n="30" href="#h30">H30 最終実技・設計の説明・次の一歩</a><a href="#exam-06">章末テスト 06</a><a class="chapter-link" href="#appendix">付録・演習ファイル</a><a href="#rubric">最終採点・検証行列</a><a href="#references">出典</a></nav><div class="toolbar"><button id="exportProgress">進捗を書き出す</button><button id="importProgress">読み込む</button><input type="file" id="progressFile" accept="application/json,.json" hidden><button id="print">印刷 / PDF</button></div><div id="storageStatus" class="status">進捗とメモはこのブラウザーに保存します。</div></aside><header class="hero"><div class="eyebrow">Local learning · Implementation course</div><h1>C#の先にある、<br>TypeScriptとReact。</h1><p>構文を一周するのではなく、型の保証範囲とレンダリングの仕組みを理解して、小さなMarket Dashboardを自分で完成させる。</p><div class="pills"><span class="pill">全6章 / 30時間</span><span class="pill">30の実装課題</span><span class="pill">18問の採点テスト</span><span class="pill">ローカル開発</span></div></header><main><noscript><p class="callout">JavaScriptが無効です。本文・解説は読めます。検索、採点、ダウンロード、進捗保存にはJavaScriptを有効にしてください。</p></noscript><section class="panel" id="intro"><h2>この教材の進め方</h2><p>C#での業務実装、ジェネリクス、LINQ、非同期処理、単体テストを理解し、Nodeとnpmにある程度触れた方を対象にしています。変数・条件分岐・ループ・クラスの基礎説明は省き、<strong>言語仕様の差分、TypeScriptのイディオム、React特有の概念と実装</strong>へ時間を使います。</p><p>成果物は、架空の相場データを検索・ソート・比較する<strong>Market Dashboard</strong>です。各コマで作る関数とコンポーネントを積み上げ、30時間目に小変更を自力で通します。教材を読むだけで30時間を消化するのではなく、手元のエディターとターミナルで実装することを前提にしています。</p><div class="callout"><strong>最初に行うこと</strong><p>このHTMLを手元に保存してブラウザーで開き、セットアップ欄からH01へ進んでください。教材本文・採点・メモは外部ライブラリーを読み込みません。npmの初回インストール、出典へのアクセス、生成AIの利用にはネット接続が必要です。</p></div><p>各コマは<strong>読解15分 → 実装30分 → 検証10分 → 自己説明5分</strong>。H05・10・15・20・25は読解10分・実装25分・検証5分・自己説明5分・章末テスト15分とします。H30は最終実技30分・検証10分・自己説明5分・最終テスト15分。章末テストは30時間に含みます。環境トラブルと不合格箇所の補習は別枠のため、実際の完了時間は前後します。</p><p>コード枠は「概念を試す短い例」が中心です。ファイル名を明記した例を除き、既存ファイルの該当箇所へ組み込み、必要なimportとPropsは自分で補います。意図的な型エラーや実験用コードは観察後に削除してください。付録のmodel.ts・parseQuotes.ts・seed.tsは保存して使える完全なファイルです。</p><p>AIにはまず出力予測、反例、レビューを頼みます。各コマのプロンプトはそのまま使えますが、自分の実装とエラーも添えてください。正解コードを読む前に「なぜ動くか」をメモへ書き、解説と照合します。</p><p class="small">教材版 1.0 / 仕様資料確認日 2026-09-19。Reactの関数コンポーネントとHooks、TypeScript strict構成を使用。依存パッケージの版は生成時に記録する方式で、特定版を固定した完成アプリを配布する教材ではありません。HTMLの保存場所やブラウザーを変える前に「進捗を書き出す」でJSONへ退避してください。</p><div class="tablewrap"><table><thead><tr><th>章 / 時間</th><th>焦点</th><th>到達点</th></tr></thead><tbody><tr><td><a href="#chapter-01">01 · H01–05</a></td><td>TypeScriptの実行モデル</td><td>型を信じる範囲を定める</td></tr><tr><td><a href="#chapter-02">02 · H06–10</a></td><td>型と境界からドメインへ</td><td>UIに依存しない機能を作る</td></tr><tr><td><a href="#chapter-03">03 · H11–15</a></td><td>Reactのレンダリングモデル</td><td>入力から一覧までをつなぐ</td></tr><tr><td><a href="#chapter-04">04 · H16–20</a></td><td>副作用と状態遷移</td><td>非同期と永続化を扱う</td></tr><tr><td><a href="#chapter-05">05 · H21–25</a></td><td>比較画面と実装の仕上げ</td><td>小さく実用的なUIにする</td></tr><tr><td><a href="#chapter-06">06 · H26–30</a></td><td>検証と最終実技</td><td>変更できる理解にする</td></tr></tbody></table></div></section><section class="panel" id="spec"><h2>30時間目の最終成果物</h2><p>架空8銘柄のローカルSPAです。認証、注文、リアルタイム配信は扱いません。表示データはすべてUSD建て、価格と共通5営業日の終値系列を持ちます。数値は教材用に作成したもので、実際の市場価格ではありません。</p><div class="tablewrap"><table><thead><tr><th>機能</th><th>受入条件</th></tr></thead><tbody><tr><td>一覧と状態表示</td><td>銘柄、名称、種別、通貨、価格、前日比%、お気に入り、比較選択を表示。loading・error・成功0件を区別し、errorから再試行可能。</td></tr><tr><td>検索と絞り込み</td><td>symbol/nameの部分一致。前後空白を除去し大文字小文字を区別しない。種別all/equity/etf、お気に入りのみとAND結合。検索0件では条件解除できる。</td></tr><tr><td>ソート</td><td>symbol、price、changePctの昇降順。欠損は両方向で末尾。同値はsymbol昇順。入力配列を変更しない。</td></tr><tr><td>比較</td><td>0〜3銘柄。IDで選択を管理。絞り込みで非表示になっても保持。4件目の追加不可、既存の解除と全解除は可能。</td></tr><tr><td>チャートと数値表</td><td>共通初日を100に基準化。共通yスケール。欠損区間は線を切る。初日欠損は基準化不可、末日欠損は期間リターン—。凡例と数値表を併記。</td></tr><tr><td>お気に入り</td><td>localStorageへIDを保存。復元時に形式を検証。壊れた保存データでも継続でき、書込失敗は画面へ表示。</td></tr><tr><td>操作と検証</td><td>キーボードで主要操作が可能。狭い画面では表を横スクロール。型検査、テスト、lint、buildに成功しpreviewで動作。</td></tr></tbody></table></div><p><strong>数値仕様：</strong>前日比は(price / previousClose − 1) × 100。どちらか欠損、または分母が0以下ならnull。表示の丸めは小数2桁とし、計算とソートには丸め前の数値を使います。モデルの価格は正値またはnullとし、0の入力は検証で拒否します。H03で扱う汎用の表示関数は0を正しく表示する設計です。</p><p>日付はYYYY-MM-DDの文字列として扱い、ローカルタイムゾーンへの変換を表示処理に持ち込みません。履歴の最終値とprice、最後から2番目とpreviousCloseは一致させます。今回の全fixtureは共通の5日付を持ち、比較前にも日付列の一致を確かめます。</p><div class="architecture"><div><strong>domain</strong>型、検証可能な計算、選択の遷移</div><div><strong>data / hooks</strong>JSON取得、境界検証、通信状態</div><div><strong>components / App</strong>表示、操作、状態の組立て</div></div><p class="small">これは本教材の設計仕様です。異なる通貨、配当調整、実際の取引所カレンダー、精密な金融計算への拡張は対象外です。</p></section><section class="panel" id="setup"><h2>ローカルセットアップ</h2><p>Node.js 24系とnpm、VS Codeなどのエディター、ブラウザーを用意します。開始時にViteの公式ページでNodeの対応条件を確認してください。以下はmacOS / Linuxのターミナル、またはPowerShellで1行ずつ実行できます。依存のインストールはH01の時間内に行い、環境構築に長くかかる場合は補習枠とします。</p><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>node --version
+npm --version
+npm create vite@latest market-dashboard -- --template react-ts
+cd market-dashboard
+npm install
+npm pkg set &#x27;scripts.typecheck=tsc -b&#x27;
+npm run dev
+# 表示された localhost のURLを開く。サーバー停止は Ctrl+C。
+# 別ターミナルを同じmarket-dashboardディレクトリーで開いて：
+npm run typecheck
+npm run build</code></pre></div><p>生成された<code>tsconfig.app.json</code>の<code>compilerOptions</code>に次の値を追加・確認します。他の設定や参照を削除せず、既存値があればそのキーを編集してください。</p><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>&quot;strict&quot;: true,
+&quot;noUncheckedIndexedAccess&quot;: true,
+&quot;exactOptionalPropertyTypes&quot;: true</code></pre></div><p>初期のApp.tsxとApp.cssは教材用のUIへ置き換えます。Viteの初期CSSが中央寄せや固定幅を設定している場合は、今回の画面に合わせて解除します。main.tsxのStrictModeは維持します。試し書きはsrc/labs/へ置き、Appから一時importして確認後に消すか、使う関数としてexportしてください。未使用コードに対する診断を避けるためのanyや設定無効化は行いません。</p><h3>H26で追加するテスト環境</h3><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event
+npm pkg set &#x27;scripts.test=vitest&#x27; &#x27;scripts.test:run=vitest run&#x27;
+# 下の2ファイルを保存してから実行
+npm run test:run</code></pre></div><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// プロジェクト直下：vitest.config.ts
+import { defineConfig } from &quot;vitest/config&quot;;
+import react from &quot;@vitejs/plugin-react&quot;;
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: &quot;jsdom&quot;,
+    setupFiles: [&quot;./src/test/setup.ts&quot;],
+    clearMocks: true,
+    restoreMocks: true
+  }
+});</code></pre></div><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// src/test/setup.ts
+import &quot;@testing-library/jest-dom/vitest&quot;;
+import { cleanup } from &quot;@testing-library/react&quot;;
+import { afterEach, vi } from &quot;vitest&quot;;
+afterEach(() =&gt; {
+  cleanup();
+  localStorage.clear();
+  vi.unstubAllGlobals();
+});</code></pre></div><p><code>vitest.config.ts</code>はVite設定と別ファイルなのでReactプラグインも明示しています。型検査対象をそろえるため、生成された<code>tsconfig.node.json</code>の<code>include</code>に<code>"vitest.config.ts"</code>を追加します。テストファイルは<code>*.test.ts</code>または<code>*.test.tsx</code>としてsrc配下に保存します。</p><p class="sources">根拠・参照：<a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite — Getting Started</a> / <a href="https://vite.dev/guide/features" target="_blank" rel="noopener noreferrer">Vite — Features</a> / <a href="https://www.typescriptlang.org/tsconfig/" target="_blank" rel="noopener noreferrer">TSConfig Reference</a> / <a href="https://vitest.dev/guide/" target="_blank" rel="noopener noreferrer">Vitest — Getting Started</a> / <a href="https://vitest.dev/config/" target="_blank" rel="noopener noreferrer">Vitest — Configuring Vitest</a> / <a href="https://testing-library.com/docs/react-testing-library/setup/" target="_blank" rel="noopener noreferrer">Testing Library — Setup</a></p></section><div class="chapter-head" id="chapter-01"><div class="num">CHAPTER 01 · H01–05 / 5 HOURS</div><h2>TypeScriptの実行モデル</h2><p>型を信じる範囲を定める</p></div><article class="lesson" id="h01" data-n="1"><div class="lesson-head"><span class="hour">H01</span><h3>実行時と型検査を切り離す</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">ローカルのReact＋TSプロジェクトを起動し、型エラーと実行時エラーを別々に再現する。</p><p>TypeScriptの型注釈・interface・型パラメーターはJavaScript実行時の検証器ではない。C#の型メタデータを前提にした設計をそのまま移すと、JSONを型アサーションしただけで検証済みだと誤解しやすい。まず「tscが検査する世界」と「ブラウザーが実行する世界」を分ける。</p><p>この教材ではViteのreact-tsテンプレートを使う。開発サーバーによる変換と型検査は別の役割なので、画面が動くことを型安全性の合格条件にしない。セットアップ欄の手順を実行し、src/labs/h01.tsをApp.tsxから一時的にimportして観察する。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>type Price = { value: number };
+const raw: unknown = { value: &quot;100&quot; };
+const price = raw as Price;
+console.log(typeof price.value); // &quot;string&quot;
+// console.log(price.value.toFixed(2)); // 実行時エラー
+export {};</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>セットアップを完了する。上の例を実行し、型アサーションが値を変換しないことを確認する。次に const x: number = &quot;100&quot; を追加して npm run typecheck を実行する。意図的エラーは観察後に削除する。</p></div><p class="check"><strong>完了条件：</strong>ブラウザーとターミナルの両方に実行結果を記録する。型エラーを削除した状態でtypecheckとbuildが成功する。</p><h4>自己説明テスト</h4><p>ジェネリックな deserialize&lt;T&gt;(json) が JSON.parse(json) as T を返すだけなら、何を保証できるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>呼び出し側にTという静的な見え方を与えるだけで、JSONの内容がTに適合することは保証できない。型引数Tから実行時の検証規則は生成されない。境界には別の検証処理が必要。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">上のdeserializeの危険性を確認する最小反例を1つだけ出して。修正版はまだ出さず、型検査と実行時を私に区別させる質問をして。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-1">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-1" data-n="1" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="1">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html" target="_blank" rel="noopener noreferrer">TypeScript for Java/C# Programmers</a> / <a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite — Getting Started</a> / <a href="https://vite.dev/guide/features" target="_blank" rel="noopener noreferrer">Vite — Features</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h02">次へ →</a></div></article><article class="lesson" id="h02" data-n="2"><div class="lesson-head"><span class="hour">H02</span><h3>構造的型付け・余剰プロパティ・推論</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">クラス継承を用いずに、データの形と互換性を説明する。</p><p>TypeScriptでは主にメンバーの構造で代入可能性を判断する。同じ形の値を、明示的なimplementsなしで関数に渡せる。一方、新しく書いたオブジェクトリテラルには余剰プロパティ検査が働く場面がある。「余分なプロパティを持つ値はすべて禁止」と一般化しない。</p><p>モデルはtypeで定義し、振る舞いは通常の関数に置く。interfaceは拡張・宣言マージを利用したいときにも使えるが、この小さなアプリでは統一性を優先する。文字列リテラルの推論とsatisfiesの関係も観察し、asでエラーを消す習慣を避ける。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>type Identified = { id: string };
+function getId(x: Identified) { return x.id; }
+const rich = { id: &quot;ALFA&quot;, label: &quot;Alpha&quot; };
+getId(rich); // OK
+// getId({ id: &quot;ALFA&quot;, label: &quot;Alpha&quot; }); // 余剰プロパティ
+const settings = {
+  direction: &quot;asc&quot;
+} satisfies { direction: &quot;asc&quot; | &quot;desc&quot; };
+// settings.direction は &quot;asc&quot; と推論される</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>付録のmodel.tsを保存し、Quoteと同じ形のリテラルを作る。idのタイプミス、プロパティの追加、変数経由の引数を比較する。satisfiesをasに替えた場合の診断の差も記録する。</p></div><p class="check"><strong>完了条件：</strong>「リテラルではエラー、変数経由ではOK」の例を説明できる。モデル定義に不要なclassや静的Utilityクラスを作らない。</p><h4>自己説明テスト</h4><p>type A = { id: string } と type B = { id: string } は名前が違えば相互代入できないか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>できる。この2つは構造が同じ。意味の異なるIDを区別したいならブランド型など追加の設計が必要だが、この教材では導入しない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の型定義をレビューし、構造的型付け・余剰プロパティ・リテラル推論の3点だけ指摘して。C#の命名的型付けと同一視している箇所を探して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-2">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-2" data-n="2" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="2">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html" target="_blank" rel="noopener noreferrer">TypeScript for Java/C# Programmers</a> / <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Everyday Types</a> / <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html" target="_blank" rel="noopener noreferrer">TypeScript 4.9 — satisfies</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h03">次へ →</a></div></article><article class="lesson" id="h03" data-n="3"><div class="lesson-head"><span class="hour">H03</span><h3>null・undefined・unknownを境界で扱う</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">欠損と不正入力を、値の真偽と混同せずに表す。</p><p>このアプリのpriceはnumber | nullとする。欠損をnullに統一し、オブジェクトにキーがない状態とは区別する。strictNullChecksに加えてnoUncheckedIndexedAccessを有効にし、配列の添字アクセスにもundefinedの可能性を反映させる。exactOptionalPropertyTypesでは任意プロパティの省略とundefinedの明示代入の差も現れる。</p><p>unknownは「使う前に絞り込む」という契約に向く。anyはその検査を通り抜ける。0を欠損扱いするif (price)やprice || fallbackを避け、null判定または??を使う。typeof nullがobjectである点も、オブジェクト検証では忘れない。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>function showPrice(value: number | null): string {
+  return value === null ? &quot;—&quot; : value.toFixed(2);
+}
+const zero = 0;
+console.log(zero || 999); // 999
+console.log(zero ?? 999); // 0
+function isRecord(x: unknown): x is Record&lt;string, unknown&gt; {
+  return typeof x === &quot;object&quot; &amp;&amp; x !== null &amp;&amp; !Array.isArray(x);
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>src/domain/format.tsにshowPriceを書く。null、0、12.345を入力して確認する。任意プロパティ foo?: number と foo: number | undefined を比較する。配列先頭を非nullアサーションなしで取り出す。</p></div><p class="check"><strong>完了条件：</strong>nullは—、0は0.00になる。空配列を扱える。unknownのプロパティに検査なしでアクセスしていない。</p><h4>自己説明テスト</h4><p>price?: number と price: number | null のうち、「キーは必ず存在し、値が欠損しうる」という今回の契約はどちらか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>後者。前者はキーの省略を許す。数値0の有効性と欠損は別の軸であり、truthinessで判定するとその区別が壊れる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の欠損処理に対して0・null・キー欠落・空配列の反例を提示して。非nullアサーションとanyを使わない修正を私に考えさせて。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-3">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-3" data-n="3" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="3">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript — Narrowing</a> / <a href="https://www.typescriptlang.org/tsconfig/" target="_blank" rel="noopener noreferrer">TSConfig Reference</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h04">次へ →</a></div></article><article class="lesson" id="h04" data-n="4"><div class="lesson-head"><span class="hour">H04</span><h3>判別可能なUnionとnever</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">通信状態を矛盾のない状態集合として設計する。</p><p>loading:booleanとerror?:stringとdata?:Tを独立させると、loadingとerrorが同時に真などの組合せが表現できてしまう。statusという判別子を持つUnionなら、その分岐に必要な値を一緒に定義できる。これはUI状態を有限の集合として扱う設計である。</p><p>switchでstatusを絞り込むと、成功分岐だけでdataが使える。全分岐を処理した後の値はneverになるので、新状態を追加した際に未対応箇所を検出できる。例外は外部境界で受け、UIへは明示的なerror状態として渡す方針にする。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>type Remote&lt;T&gt; =
+  | { status: &quot;loading&quot; }
+  | { status: &quot;success&quot;; data: T }
+  | { status: &quot;error&quot;; message: string };
+function unreachable(x: never): never {
+  throw new Error(`Unhandled state: ${JSON.stringify(x)}`);
+}
+function describe&lt;T&gt;(s: Remote&lt;T&gt;): string {
+  switch (s.status) {
+    case &quot;loading&quot;: return &quot;読込中&quot;;
+    case &quot;success&quot;: return &quot;読込成功&quot;;
+    case &quot;error&quot;: return s.message;
+    default: return unreachable(s);
+  }
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>model.tsにRemote&lt;T&gt;を追加する。既存の3状態をdescribeで処理する。その後一時的に { status: &quot;idle&quot; } を追加し、網羅性エラーを観察してから戻す。</p></div><p class="check"><strong>完了条件：</strong>success以外でdataが参照できない。idle追加でコンパイラーが未対応を検出する。</p><h4>自己説明テスト</h4><p>loadingとerrorの独立したbooleanをUnionに置き換える利点は、短く書けることだけか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>本質は不正な組合せを表現しにくくすること。UIの分岐ごとに利用可能なデータが対応し、状態追加時の漏れも検出できる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のRemote型に表現可能な矛盾が残っていないかレビューして。状態数を増やす案より先に、実際の遷移例で指摘して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-4">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-4" data-n="4" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="4">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript — Narrowing</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h05">次へ →</a></div></article><article class="lesson" id="h05" data-n="5"><div class="lesson-head"><span class="hour">H05</span><h3>readonly・分割代入・配列操作</h3></div><p class="timing">読解10分 / 実装25分 / 検証5分 / 自己説明5分 / 章末15分</p><p class="goal">参照共有と浅いコピーを理解し、純粋な集計関数を作る。</p><p>readonlyはその型を通じた書き換えを静的に制限するもので、実行時の深い凍結ではない。スプレッドも浅いコピーなので、配列だけを複製して要素オブジェクトを書き換えると元の要素が変わりうる。Reactの状態更新へ進む前に参照図を自分で追う。</p><p>Arrayのfilterとmapは通常の配列を直ちに返す。この教材ではLINQの遅延評価を期待しない。sortは元配列を変更し、比較関数を省略すると数値の大小順にはならない。コピーしてから比較関数付きでソートする。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>const values = [3, 20, 100];
+console.log([...values].sort()); // [100, 20, 3]
+console.log([...values].sort((a, b) =&gt; a - b)); // [3, 20, 100]
+const oldRows = [{ id: &quot;ALFA&quot;, price: 100 }];
+const nextRows = oldRows.map(q =&gt;
+  q.id === &quot;ALFA&quot; ? { ...q, price: 110 } : q
+);
+console.log(oldRows[0]?.price); // 100</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>Quote[]をreadonly Quote[]として受けるpriceの集計関数を作る。欠損を除外した平均を返し、有効価格が0件ならnullを返す。第1章テストまで、このコマの最後15分を使う。</p></div><p class="check"><strong>完了条件：</strong>入力配列と要素が変化しない。全件欠損ならnull。平均0を欠損と混同しない。</p><h4>自己説明テスト</h4><p>const next = [...rows]; next[0].price = 200; は元データから独立した更新か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>いいえ。要素の参照は共有される。更新対象の要素も {...row, price: 200} と複製する。readonly配列だけでは要素のプロパティの変更まで禁止しない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の集計関数に入力破壊がないか確認して。配列と要素それぞれの参照同一性を区別する質問をして。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-5">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-5" data-n="5" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="5">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/2/objects.html" target="_blank" rel="noopener noreferrer">TypeScript — Object Types</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener noreferrer">MDN — Array.sort</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h06">次へ →</a></div></article><section class="exam" id="exam-01" data-chapter="0"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第1章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. 型注釈を付けたJSONの実行時検証について正しいものは？</legend><label><input type="radio" name="q-0-0" value="0">型引数Tが検証器を生成する</label><label><input type="radio" name="q-0-0" value="1">unknownとして受け取り、値を検査する</label><label><input type="radio" name="q-0-0" value="2">as Tが値をTへ変換する</label><div class="feedback" id="feedback-0-0" hidden></div></fieldset><fieldset><legend>2. 0を有効値として残しnullだけを既定値へ置き換える式は？</legend><label><input type="radio" name="q-0-1" value="0">value || 100</label><label><input type="radio" name="q-0-1" value="1">value ? value : 100</label><label><input type="radio" name="q-0-1" value="2">value ?? 100</label><div class="feedback" id="feedback-0-1" hidden></div></fieldset><fieldset><legend>3. 配列をスプレッドで複製したとき、元の要素オブジェクトとの関係は？</legend><label><input type="radio" name="q-0-2" value="0">要素の参照は共有される</label><label><input type="radio" name="q-0-2" value="1">すべての要素も深く複製される</label><label><input type="radio" name="q-0-2" value="2">元配列が凍結される</label><div class="feedback" id="feedback-0-2" hidden></div></fieldset><button class="primary grade" data-chapter="0" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-0" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢2：型注釈とasは実行時検証にならない。unknownから検査して採用する。H01・H03へ。</p><p>2. 選択肢3：??はnull/undefinedを対象にする。||やtruthinessは0も落としてしまう。H03へ。</p><p>3. 選択肢1：浅いコピーであり、更新対象の要素もコピーする必要がある。H05へ。</p></details></section><div class="chapter-head" id="chapter-02"><div class="num">CHAPTER 02 · H06–10 / 5 HOURS</div><h2>型と境界からドメインへ</h2><p>UIに依存しない機能を作る</p></div><article class="lesson" id="h06" data-n="6"><div class="lesson-head"><span class="hour">H06</span><h3>ジェネリクス・keyof・型の導出</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">使い道のある型関係だけを抽象化する。</p><p>ジェネリクスは戻り値と引数の関係を保持する道具として使う。Tをanyに置き換えると、呼び出し側に情報が戻らない。keyofとT[K]を組み合わせると「そのキーに対応する値の型」を表せる。C#の制約に似たextendsも、ここでは構造的な代入可能性を条件にする。</p><p>PickやRecordは既存の形から型を導く道具であり、実行時のオブジェクトを生成しない。Mapped Typeはキーの反復、Conditional Typeは型の条件分岐と考える。後者のUnionへの分配などは発展項目とし、今は複雑な汎用テーブルを作らず列IDの取り違え防止に使う。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>function get&lt;T, K extends keyof T&gt;(obj: T, key: K): T[K] {
+  return obj[key];
+}
+type ColumnKey = &quot;symbol&quot; | &quot;price&quot; | &quot;changePct&quot;;
+const labels = {
+  symbol: &quot;銘柄&quot;, price: &quot;価格&quot;, changePct: &quot;前日比 %&quot;
+} satisfies Record&lt;ColumnKey, string&gt;;
+type Flags&lt;T&gt; = { [K in keyof T]: boolean };
+type ArrayItem&lt;T&gt; = T extends readonly (infer U)[] ? U : never;</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>ColumnKeyと列ラベルをsrc/domain/columns.tsに作る。typoを混ぜてsatisfiesのエラーを観察する。get({id:&quot;ALFA&quot;,price:100},&quot;price&quot;)の戻り型を確認する。FlagsとArrayItemは型ホバーで確認するだけでよい。</p></div><p class="check"><strong>完了条件：</strong>存在しないキーを指定すると失敗する。Recordは列追加時にラベルの実装漏れを検出する。</p><h4>自己説明テスト</h4><p>function get(obj:any,key:string):any とジェネリック版の違いを、呼び出し側の情報で説明せよ。</p><details class="answer"><summary>回答してから解説を開く</summary><p>ジェネリック版では有効なキーの集合と、キーごとの戻り型が維持される。any版では存在しないキーが通り、戻り値への誤操作も検査されない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の型の抽象化が今回の3列に必要かレビューして。型パズルを増やさず、不正な呼び出しを1つ防げるかで評価して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-6">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-6" data-n="6" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="6">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/2/generics.html" target="_blank" rel="noopener noreferrer">TypeScript — Generics</a> / <a href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Mapped Types</a> / <a href="https://www.typescriptlang.org/docs/handbook/2/conditional-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Conditional Types</a> / <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html" target="_blank" rel="noopener noreferrer">TypeScript 4.9 — satisfies</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h07">次へ →</a></div></article><article class="lesson" id="h07" data-n="7"><div class="lesson-head"><span class="hour">H07</span><h3>関数・クロージャ・ES Modules</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">関数生成時の環境とモジュールの依存を追う。</p><p>関数は値であり、外側のレキシカル環境を参照するクロージャを作る。ただし「クロージャは常に値のコピー」ではない。次のmakeReaderは可変のローカル変数を共有する。一方、Reactではレンダーごとに別の関数呼び出しとローカル束縛が生じる。この違いが後のstale closureの理解に効く。</p><p>このプロジェクトはES Modulesで構成する。型だけの依存はimport type、実行時の関数や値は通常のimportとする。ブラウザー用コードにNode専用APIを混ぜない。普段はトップレベル関数をexportし、thisが必要ない処理をクラスへ押し込まない。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>function makeReader() {
+  let value = 1;
+  return {
+    read: () =&gt; value,
+    set: (next: number) =&gt; { value = next; }
+  };
+}
+const pair = makeReader();
+pair.set(2);
+console.log(pair.read()); // 2
+// 別ファイルでは：
+// import type { Quote } from &quot;./model&quot;;
+// import { selectQuotes } from &quot;./selectors&quot;;</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>format.tsとselectors.tsを分ける。makeReaderを2回呼んで、それぞれ独立した環境を持つことを確認する。循環importを作らず、domainからReactへ依存しない構成にする。</p></div><p class="check"><strong>完了条件：</strong>型だけのimportと値のimportを説明できる。2つのreaderでsetの影響が独立する。</p><h4>自己説明テスト</h4><p>クロージャは常に生成時の値を固定する、という説明は正しいか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>一般には正しくない。参照するのは環境の束縛であり、同じ束縛が更新されれば新しい値を読む。Reactの古いハンドラーは古いレンダーの束縛を参照する、と区別する。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">クロージャの理解を確かめたい。共有される可変束縛と、別々の関数呼び出しの束縛を対比する出力予測問題を出して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-7">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-7" data-n="7" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="7">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures" target="_blank" rel="noopener noreferrer">MDN — Closures</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener noreferrer">MDN — JavaScript modules</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h08">次へ →</a></div></article><article class="lesson" id="h08" data-n="8"><div class="lesson-head"><span class="hour">H08</span><h3>Promise・async・キャンセル</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">非同期処理の順序と失敗をUIから独立させる。</p><p>Promiseは将来の成功または失敗を表す。awaitは後続処理を中断・再開する構文であり、CPU処理を別スレッドへ移す指定ではない。独立した取得を逐次awaitするかPromise.allで並行して待つかは、依存関係とエラー方針で決める。</p><p>fetchはHTTPエラーステータスだけではrejectしないためresponse.okを検査する。中断にはAbortSignalを取得処理まで渡す。キャンセルと業務上の読込失敗を同じエラーメッセージで扱わない準備として、API層は例外を返し、UI層が状態へ翻訳する。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>export async function fetchJson(
+  url: string, signal: AbortSignal
+): Promise&lt;unknown&gt; {
+  const response = await fetch(url, { signal });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const raw: unknown = await response.json();
+  return raw;
+}
+// 呼び出し元で const controller = new AbortController();
+// fetchJson(&quot;/quotes.json&quot;, controller.signal);
+// controller.abort();</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>public/quotes.jsonへ教材のデータを保存する。src/data/fetchJson.tsを作り、存在するURLと存在しないURLを試す。開発サーバーのHTMLフォールバックにより200でもJSON解釈に失敗しうることを確認する。</p></div><p class="check"><strong>完了条件：</strong>成功・HTTPエラー・JSON解釈失敗を区別できる。全てのPromiseをawaitまたはcatchで処理する。</p><h4>自己説明テスト</h4><p>await fetch(...)の前に重い同期ループを書くと、UIは自動的に非ブロッキングになるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>ならない。awaitは同期計算を別スレッドに移さない。CPU負荷の大きい処理には処理分割やWeb Worker等、別の設計が必要になる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の非同期関数についてHTTP 404、JSON不正、中断の経路をレビューして。Promise.allの採用は依存関係があるかを確認してから提案して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-8">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-8" data-n="8" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="8">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN — Promise</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN — Using Fetch</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h09">次へ →</a></div></article><article class="lesson" id="h09" data-n="9"><div class="lesson-head"><span class="hour">H09</span><h3>外部JSONを検証済みモデルに変える</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">unknownからQuote[]への境界を1か所に置く。</p><p>型アサーションの代わりに実行時の検証関数を用意する。この教材では外部依存を増やさず、isRecordと個別プロパティ検査を組み合わせる。型述語 x is Quote の正しさは実装者の責任であり、コンパイラーが検査内容の十分性を証明するわけではない。</p><p>付録の検証例を読み、priceの有限性・正値、系列の日付順、重複IDまで確認する。戻り値が型として妥当でも、期間が共通でないなどの比較条件は別のドメイン制約である。取り込み境界で要求する制約と、比較時に判定する制約を分ける。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// src/data/loadQuotes.ts
+import { fetchJson } from &quot;./fetchJson&quot;;
+import { parseQuotes } from &quot;./parseQuotes&quot;;
+import type { Quote } from &quot;../domain/model&quot;;
+export async function loadQuotes(
+  url: string, signal: AbortSignal
+): Promise&lt;readonly Quote[]&gt; {
+  return parseQuotes(await fetchJson(url, signal));
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>付録のparseQuotesを保存して読み解く。priceを文字列、履歴closeを負値、IDを重複にしたコピーを作り、検証が失敗することを確認する。正常データ8件が通ることも確認する。</p></div><p class="check"><strong>完了条件：</strong>JSONをas Quote[]で直接採用していない。エラーには対象の行またはIDが含まれる。空配列は正常な0件データとして受け入れる。</p><h4>自己説明テスト</h4><p>function isQuote(x:unknown): x is Quote { return true; } は型検査が通るなら安全か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>安全ではない。型述語は呼び出し側の絞り込みを制御する宣言であり、その真偽を返すコードを正しく実装しなければ虚偽の保証になる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のparseQuotesに不正な入力を渡して反例を探して。型の検証とドメイン制約を区別し、既に確認している正常系の説明は省いて。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-9">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-9" data-n="9" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="9">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript — Narrowing</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN — Using Fetch</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h10">次へ →</a></div></article><article class="lesson" id="h10" data-n="10"><div class="lesson-head"><span class="hour">H10</span><h3>絞り込み・ソートを純粋関数にする</h3></div><p class="timing">読解10分 / 実装25分 / 検証5分 / 自己説明5分 / 章末15分</p><p class="goal">UIなしで最終成果物の検索規則を完成させる。</p><p>一覧処理をselectQuotes(rows, filter, sort)に集約すると、UIのイベントと業務規則を分離できる。検索語はtrimして小文字化し、symbolまたはnameの部分一致にする。種別と検索はAND結合と定義する。曖昧な要件をコードの都合で決めない。</p><p>欠損は昇順・降順の両方で末尾に置く。比較結果に単純に-1を掛けるだけでは欠損まで先頭へ移動するので、欠損分岐を先に処理する。同値のときはsymbolで決定的に並べる。元配列を変更しないこともAPI契約に含める。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>export function compareNullable(
+  a: number | null, b: number | null, direction: &quot;asc&quot; | &quot;desc&quot;
+): number {
+  if (a === null) return b === null ? 0 : 1;
+  if (b === null) return -1;
+  return direction === &quot;asc&quot; ? a - b : b - a;
+}
+// const result = [...filtered].sort((a, b) =&gt;
+//   compareNullable(a.price, b.price, direction) ||
+//   a.symbol.localeCompare(b.symbol));</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>付録の仕様に従ってselectors.tsのselectQuotesとchangePctを実装する。価格・前日比・銘柄の3列に対応させる。比較関数の例を利用してよい。最後15分で第2章テストを行う。</p></div><p class="check"><strong>完了条件：</strong>空検索は8件、種別etfは2件、検索alfaは1件、未知語は0件。価格昇順も降順もHOTELが最後。ALFAの前日比は約1.851852%。</p><h4>自己説明テスト</h4><p>降順を「昇順の結果をreverseする」で実装すると、今回の仕様で何が壊れるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>欠損末尾が先頭へ移る。同値時のsymbol順も反転する。欠損・主キー・タイブレークそれぞれの規則を明示的に実装する。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">selectQuotesをレビューして。欠損末尾、同値、元配列非破壊、AND条件の4点を反例で検証して。修正コードを一括生成せず失敗例から示して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-10">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-10" data-n="10" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="10">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener noreferrer">MDN — Array.sort</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h11">次へ →</a></div></article><section class="exam" id="exam-02" data-chapter="1"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第2章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. keyof TとT[K]で表せる関係は？</legend><label><input type="radio" name="q-1-0" value="0">Tの実行時クラス名</label><label><input type="radio" name="q-1-0" value="1">存在するキーと対応する値の型</label><label><input type="radio" name="q-1-0" value="2">JSONスキーマの自動検証</label><div class="feedback" id="feedback-1-0" hidden></div></fieldset><fieldset><legend>2. fetchがHTTP 404を返した場合は？</legend><label><input type="radio" name="q-1-1" value="0">常にcatchへ直行する</label><label><input type="radio" name="q-1-1" value="1">必ずnullを返す</label><label><input type="radio" name="q-1-1" value="2">Responseを受け取るのでokを確認する</label><div class="feedback" id="feedback-1-1" hidden></div></fieldset><fieldset><legend>3. 昇順・降順ともnullを末尾に置くには？</legend><label><input type="radio" name="q-1-2" value="0">欠損を先に分岐し、有効値の比較だけ方向を変える</label><label><input type="radio" name="q-1-2" value="1">昇順結果をreverseする</label><label><input type="radio" name="q-1-2" value="2">nullを0にする</label><div class="feedback" id="feedback-1-2" hidden></div></fieldset><button class="primary grade" data-chapter="1" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-1" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢2：引数キーを制約し戻り値の型関係を保持できる。型演算は実行時処理を作らない。H06へ。</p><p>2. 選択肢3：ネットワーク拒否とHTTPエラーステータスは異なる。H08へ。</p><p>3. 選択肢1：欠損の位置はソート方向から独立した規則。H10へ。</p></details></section><div class="chapter-head" id="chapter-03"><div class="num">CHAPTER 03 · H11–15 / 5 HOURS</div><h2>Reactのレンダリングモデル</h2><p>入力から一覧までをつなぐ</p></div><article class="lesson" id="h11" data-n="11"><div class="lesson-head"><span class="hour">H11</span><h3>JSX・Props・コンポーネントの型</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">UIをPropsから返す関数として書き、JSXの式を読めるようにする。</p><p>JSXはHTML文字列ではなくJavaScriptの式へ変換される構文である。タグの中の波括弧には式を書き、コンポーネントは大文字で始める。イベントには関数を渡す。onClick={remove(id)}のように書くとレンダー中に呼び出してしまう。</p><p>Propsを明示した通常の関数宣言で十分に型付けでき、React.FCは必須ではない。childrenを受け取るならReactNodeをPropsに明示する。まずQuoteTableとQuoteRowを静的に描画し、状態を置く前にデータと画面の境界を固める。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import type { Quote } from &quot;../domain/model&quot;;
+type Props = { quote: Quote; onToggle: (id: string) =&gt; void };
+export function QuoteRow({ quote, onToggle }: Props) {
+  return &lt;tr&gt;
+    &lt;td&gt;{quote.symbol}&lt;/td&gt;
+    &lt;td&gt;{quote.price === null ? &quot;—&quot; : quote.price.toFixed(2)}&lt;/td&gt;
+    &lt;td&gt;&lt;button onClick={() =&gt; onToggle(quote.id)}&gt;比較&lt;/button&gt;&lt;/td&gt;
+  &lt;/tr&gt;;
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>QuoteRow.tsxとQuoteTable.tsxを作り、検証済みデータ8件を描画する。この時点では付録からダウンロードしたseed.tsをimportして使う。比較ボタンはIDをconsoleへ出せばよい。</p></div><p class="check"><strong>完了条件：</strong>Propsのtypoは型エラーになる。表示時にonToggleが呼ばれず、クリックした行のIDだけが出る。</p><h4>自己説明テスト</h4><p>onClick={onToggle(id)} と onClick={() =&gt; onToggle(id)} の呼び出しタイミングはどう違うか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>前者はレンダー中に呼び出す。後者は関数を渡し、イベント発生時に呼び出す。前者の戻り値がvoidなら型診断も出る。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のTSXを見てProps型とイベントの呼び出し時点だけをレビューして。React.FCへの機械的な置換はしないで。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-11">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-11" data-n="11" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="11">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/typescript" target="_blank" rel="noopener noreferrer">React — Using TypeScript</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h12">次へ →</a></div></article><article class="lesson" id="h12" data-n="12"><div class="lesson-head"><span class="hour">H12</span><h3>Render・Commit・純粋性</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">コンポーネント関数の実行とDOM更新を区別する。</p><p>Reactはレンダーで次のUIを計算し、コミットで必要なDOM変更を適用する。コンポーネント関数が呼ばれた回数と、DOMが実際に変更された回数は同じとは限らない。レンダー中に外部変数・配列・ストレージを書き換えると、再実行に耐えられなくなる。</p><p>開発時のStrictModeによる追加の呼び出しは不純な処理を発見する助けになる。「2回呼ばれたからStrictModeを外す」を解決策にしない。テーブルの集計は入力から計算し、ユーザー操作はハンドラー、外部との同期は後でEffectへ分ける。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// 悪い例：レンダーするたび外部値を変更する
+// let displayed = 0;
+// function Counter() { return &lt;p&gt;{++displayed}&lt;/p&gt;; }
+// 良い例：入力から計算する
+import type { Quote } from &quot;../domain/model&quot;;
+export function Summary({ rows }: { rows: readonly Quote[] }) {
+  const available = rows.filter(q =&gt; q.price !== null).length;
+  return &lt;p&gt;表示 {rows.length} 件・価格あり {available} 件&lt;/p&gt;;
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>Summaryを一覧の上に追加する。レンダー中にrows.sort()、localStorage.setItem、外部配列pushがないか確認する。StrictModeを維持して画面を観察する。</p></div><p class="check"><strong>完了条件：</strong>同じPropsで何度呼んでも表示内容と外部状態が変わらない。8件中7件に価格がある。</p><h4>自己説明テスト</h4><p>コンポーネント内のconsole.logが2回出たら、DOMも必ず2回書き換わったといえるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>いえない。レンダーはUIの計算であり、コミット時には必要なDOM変更のみを行う。開発時の追加実行も区別する。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のコンポーネントからレンダー中の副作用を探して。実行回数を減らすより先に、再実行しても安全な構造か評価して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-12">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-12" data-n="12" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="12">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">React — Render and Commit</a> / <a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h13">次へ →</a></div></article><article class="lesson" id="h13" data-n="13"><div class="lesson-head"><span class="hour">H13</span><h3>useState・スナップショット・更新キュー</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">stateを可変フィールドとして扱わず、次のレンダーへの更新として考える。</p><p>useStateのsetterは現在実行中の関数のローカル変数を書き換えない。各レンダーが受け取るstateはそのレンダーのスナップショットであり、その中で作られたハンドラーも同じ値を見る。setCount(count + 1)を3回書いても同じ次値を3回指定するだけになる。</p><p>前状態に依存するならsetCount(c =&gt; c + 1)を使う。更新関数はキュー内の前結果を受け取る。配列もsetSelected(prev =&gt; ...)で更新すると連続操作に対応しやすい。ただし更新関数自体に通知・保存などの副作用を混ぜない。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// コンポーネント内の実験
+const [count, setCount] = useState(0);
+function incrementThree() {
+  setCount(c =&gt; c + 1);
+  setCount(c =&gt; c + 1);
+  setCount(c =&gt; c + 1);
+  console.log(count); // このレンダーの値
+}
+// import { useState } from &quot;react&quot; を追加する</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>一時的なカウンターを作り、値指定3回と更新関数3回の差を観察する。その後queryとselectedIdsのstateをAppへ置く。データから導けるvisibleRowsはstateへ入れない。</p></div><p class="check"><strong>完了条件：</strong>初期値0から値指定は1、更新関数は3になる理由を説明できる。setter直後のログが旧値でも不具合だと判断しない。</p><h4>自己説明テスト</h4><p>初期count=0でsetCount(count+1); setCount(c=&gt;c+1); の次の値は何か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>2。最初の更新で1へ置き換え、次の更新関数がその1を受け取って2を返す。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">state更新の出力予測問題を3問出して。私が答えるまでは答えを隠し、バッチ処理とクロージャのどちらを誤解したかだけ指摘して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-13">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-13" data-n="13" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="13">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/state-as-a-snapshot" target="_blank" rel="noopener noreferrer">React — State as a Snapshot</a> / <a href="https://react.dev/learn/queueing-a-series-of-state-updates" target="_blank" rel="noopener noreferrer">React — Queueing State Updates</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h14">次へ →</a></div></article><article class="lesson" id="h14" data-n="14"><div class="lesson-head"><span class="hour">H14</span><h3>制御された入力とイベント型</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">入力値の所有者をstateに一本化する。</p><p>検索欄はvalueとonChangeを一緒に渡す制御コンポーネントとする。初期値は空文字にし、途中でundefinedから文字列へ切り替えない。入力値を同期的にstateへ反映し、検索結果はその値から計算する。</p><p>イベント型が必要な場合はChangeEvent&lt;HTMLInputElement&gt;を使う。インラインハンドラーなら文脈から推論されるので毎回明示する必要はない。selectの値はDOM上ではstringなので、Kindへasで押し込まず分岐で検査する。数値入力の空文字を0へ変換しない注意も、この境界の問題である。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// src/components/SearchBox.tsx
+export function SearchBox({ value, onChange }: {
+  value: string; onChange: (value: string) =&gt; void
+}) {
+  return &lt;label&gt;銘柄検索
+    &lt;input value={value}
+      onChange={e =&gt; onChange(e.currentTarget.value)} /&gt;
+  &lt;/label&gt;;
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>SearchBoxをAppのqueryへ接続する。種別selectはall/equity/etfを分岐で受け入れる。クリアボタンを実装し、空文字に戻す。labelをクリックすると入力へフォーカスすることを確認する。</p></div><p class="check"><strong>完了条件：</strong>入力中に文字が消えない。alfaで1件、クリアで8件へ戻る。labelと入力が関連付いている。</p><h4>自己説明テスト</h4><p>inputにvalueだけを指定しonChangeを省くと、編集可能な検索欄になるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>通常の制御入力としてはならない。Reactに固定したvalueを渡し続けるため、編集結果をstateへ反映するハンドラーが必要。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">検索欄をレビューして。制御・非制御の切替、DOM文字列からUnionへの変換、labelの関連付けに範囲を限定して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-14">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-14" data-n="14" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="14">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react-dom/components/input" target="_blank" rel="noopener noreferrer">React — input</a> / <a href="https://react.dev/learn/typescript" target="_blank" rel="noopener noreferrer">React — Using TypeScript</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h15">次へ →</a></div></article><article class="lesson" id="h15" data-n="15"><div class="lesson-head"><span class="hour">H15</span><h3>派生値・状態の持ち上げ・安定したkey</h3></div><p class="timing">読解10分 / 実装25分 / 検証5分 / 自己説明5分 / 章末15分</p><p class="goal">一覧・件数・比較選択が同じ状態を参照する構成にする。</p><p>検索結果と件数はrowsとfilterから導けるので、レンダー中に計算する。EffectでvisibleRowsへコピーすると、同期すべきstateが増える。この教材ではquery、kind、sort、selectedIdsをAppが所有し、子は値とコールバックを受け取る。</p><p>行のkeyにはquote.idを使う。keyは位置とともにコンポーネントの同一性を判断する手掛かりになる。ソート可能な一覧でindexをkeyにすると、行ローカルのstateが別の銘柄へ対応しうる。keyは子に通常のPropsとして渡らないので、必要なidは別に渡す。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// App内：useEffectでvisibleRowsを同期しない
+const visibleRows = selectQuotes(rows, { query, kind }, sort);
+return &lt;&gt;
+  &lt;Summary rows={visibleRows} /&gt;
+  &lt;table&gt;&lt;tbody&gt;{visibleRows.map(q =&gt;
+    &lt;QuoteRow key={q.id} quote={q} onToggle={toggle} /&gt;
+  )}&lt;/tbody&gt;&lt;/table&gt;
+&lt;/&gt;;</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>検索・種別・3列ソートを接続し、件数を同じvisibleRowsから表示する。ソートボタンの昇降順を切り替える。最後15分で第3章テストを行う。</p></div><p class="check"><strong>完了条件：</strong>検索結果と件数が常に一致する。選択中にソートしても比較対象のIDが変化しない。派生一覧を保存するstateやEffectがない。</p><h4>自己説明テスト</h4><p>filteredRowsをstateにし、query変更時にEffectで更新する設計が今回不要な理由は何か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>既存のrowsとqueryから完全に導けるため。二重に持つと古い結果を一度描画する経路や同期漏れが増える。直接計算で十分。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のstate一覧を最小化して。各項目がユーザー入力・外部データ・派生値のどれかを説明し、派生値の重複保存を指摘して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-15">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-15" data-n="15" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="15">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/you-might-not-need-an-effect" target="_blank" rel="noopener noreferrer">React — You Might Not Need an Effect</a> / <a href="https://react.dev/learn/preserving-and-resetting-state" target="_blank" rel="noopener noreferrer">React — Preserving and Resetting State</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h16">次へ →</a></div></article><section class="exam" id="exam-03" data-chapter="2"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第3章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. 初期値0でsetN(n+1)を同じハンドラー内で2回呼ぶと？</legend><label><input type="radio" name="q-2-0" value="0">2</label><label><input type="radio" name="q-2-0" value="1">1</label><label><input type="radio" name="q-2-0" value="2">毎回異なる</label><div class="feedback" id="feedback-2-0" hidden></div></fieldset><fieldset><legend>2. rowsとfilterから計算できるvisibleRowsの置き場所は？</legend><label><input type="radio" name="q-2-1" value="0">別stateとEffect</label><label><input type="radio" name="q-2-1" value="1">DOMから読み取る</label><label><input type="radio" name="q-2-1" value="2">レンダー時の派生値</label><div class="feedback" id="feedback-2-1" hidden></div></fieldset><fieldset><legend>3. ソートできる銘柄行のkeyとして適切なのは？</legend><label><input type="radio" name="q-2-2" value="0">現在の配列index</label><label><input type="radio" name="q-2-2" value="1">毎回生成する乱数</label><label><input type="radio" name="q-2-2" value="2">安定した銘柄ID</label><div class="feedback" id="feedback-2-2" hidden></div></fieldset><button class="primary grade" data-chapter="2" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-2" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢2：同じスナップショットのn=0から1を2回指定する。H13へ。</p><p>2. 選択肢3：二重の状態同期を作らず入力から導く。H15へ。</p><p>3. 選択肢3：順序が変わっても同じ行の同一性を保つ。H15へ。</p></details></section><div class="chapter-head" id="chapter-04"><div class="num">CHAPTER 04 · H16–20 / 5 HOURS</div><h2>副作用と状態遷移</h2><p>非同期と永続化を扱う</p></div><article class="lesson" id="h16" data-n="16"><div class="lesson-head"><span class="hour">H16</span><h3>useEffectは外部システムとの同期</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">依存配列をイベントの発火条件と混同しない。</p><p>Effectはコンポーネントを外部システムに同期する用途に使う。データ取得、タイマー、イベント購読などが候補になる。依存配列は「好きなときだけ実行するスイッチ」ではなく、Effect内で読むリアクティブな値を反映する。警告を無視して空配列にするのは仕様の変更になる。</p><p>購読を開始したらcleanupで解除する。開発時StrictModeでsetup→cleanup→setupを通っても、購読が重複しないようにする。Effectのコールバック自体をasyncにせず、内部で非同期関数を起動する。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>useEffect(() =&gt; {
+  const controller = new AbortController();
+  // 完全な成功・失敗処理は次のコマで実装する
+  void loadQuotes(url, controller.signal).then(
+    data =&gt; console.log(data.length),
+    error =&gt; { if (!controller.signal.aborted) console.error(error); }
+  );
+  return () =&gt; controller.abort();
+}, [url]);</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>seed.tsの直接importを、loadQuotesによる取得へ置き換える準備をする。urlはAppの外に置いた固定文字列、またはPropsのstringとする。Effect内で不必要に毎回変わるオブジェクト依存を作らない。</p></div><p class="check"><strong>完了条件：</strong>cleanupを説明できる。型付きデータ取得が成功する。全Promiseに失敗経路がある。依存配列のlint警告を無効化していない。</p><h4>自己説明テスト</h4><p>検索結果の計算、購入ボタンの送信、URLに対応するデータ購読のうちEffectの同期モデルに最も合うのはどれか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>URLに対応する購読。検索結果はレンダーで計算し、特定操作による送信はイベントハンドラーで開始するのが今回の設計。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">Effectを1つずつ見て、同期対象の外部システムを言語化して。対象がないEffectは派生計算やイベント処理へ戻せないか質問して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-16">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-16" data-n="16" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="16">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a> / <a href="https://react.dev/learn/you-might-not-need-an-effect" target="_blank" rel="noopener noreferrer">React — You Might Not Need an Effect</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h17">次へ →</a></div></article><article class="lesson" id="h17" data-n="17"><div class="lesson-head"><span class="hour">H17</span><h3>通信状態と古いレスポンスの競合</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">後発リクエストの結果を古い結果が上書きしないようにする。</p><p>URLがAからBへ変わり、Bが先に完了してからAが完了すると、単純なsetStateはAで上書きしてしまう。各Effectの実行にactiveフラグを持ち、cleanup後の結果を採用しない。AbortControllerで通信を中断しつつ、結果採用のガードも明示する。</p><p>読込開始はloading、検証まで成功したらsuccess、失敗はerrorとする。この教材では再読込中は旧データを隠すという単純な仕様に固定する。旧データを残す設計は可能だが、その場合はrefreshingなどの状態を別途定義する必要がある。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>useEffect(() =&gt; {
+  let active = true;
+  const controller = new AbortController();
+  setRemote({ status: &quot;loading&quot; });
+  void loadQuotes(url, controller.signal).then(
+    data =&gt; { if (active) setRemote({ status: &quot;success&quot;, data }); },
+    error =&gt; {
+      if (active) setRemote({ status: &quot;error&quot;, message:
+        error instanceof Error ? error.message : &quot;読込に失敗しました&quot; });
+    }
+  );
+  return () =&gt; { active = false; controller.abort(); };
+}, [url, reloadKey]);</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>AppにRemote&lt;readonly Quote[]&gt;とreloadKeyを追加する。再試行ボタンでreloadKeyを増やす。テスト用の遅延付きloaderでAを遅く、Bを速く解決させ、画面がBのまま保たれることを確認する。</p></div><p class="check"><strong>完了条件：</strong>読込中・0件・成功・失敗・再試行を表示できる。古いAの結果とエラーの両方が無視される。</p><h4>自己説明テスト</h4><p>成功経路だけactiveを確認し、失敗経路で無条件にsetRemoteする実装に残る問題は何か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>古いリクエストの失敗で、新しい成功画面がエラー表示へ上書きされる。結果を採用するすべての経路をガードする。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">通信競合を再現するテスト手順を作って。A開始→B開始→B成功→A失敗の順序で、期待する表示を各段階で私に答えさせて。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-17">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-17" data-n="17" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="17">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN — Using Fetch</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h18">次へ →</a></div></article><article class="lesson" id="h18" data-n="18"><div class="lesson-head"><span class="hour">H18</span><h3>useReducerで比較選択の遷移を集める</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">比較対象0〜3件という不変条件を1か所で守る。</p><p>比較選択は追加・解除・全解除という遷移を持つ。複数のハンドラーに上限処理を散らすと、一部の経路だけ4件になる。Reducerに遷移を集めると、入力stateとactionから次stateを返す純粋関数として検証できる。</p><p>stateにはQuoteオブジェクトの複製ではなくIDを保存し、最新rowsから比較対象を導く。フィルターで行が隠れても比較対象は保持する。上限に達したら未選択行の追加ボタンを無効化し、選択中の行は解除可能にする。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>type Action = { type: &quot;toggle&quot;; id: string } | { type: &quot;clear&quot; };
+export function selectionReducer(
+  state: readonly string[], action: Action
+): readonly string[] {
+  switch (action.type) {
+    case &quot;clear&quot;: return [];
+    case &quot;toggle&quot;:
+      if (state.includes(action.id)) return state.filter(id =&gt; id !== action.id);
+      return state.length &lt; 3 ? [...state, action.id] : state;
+  }
+}
+// const [selectedIds, dispatch] = useReducer(selectionReducer, []);</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>比較選択をReducerへ移す。Appのtoggleはdispatchを呼ぶ薄い関数にする。ComparePanelに全解除を追加する。現在のrowsに存在するIDだけを選択候補として渡す。</p></div><p class="check"><strong>完了条件：</strong>同じIDの再選択で解除、4件目は追加不可、上限でも既存の解除は可能。関数は入力配列を変更しない。</p><h4>自己説明テスト</h4><p>Reducerの中でlocalStorageへ書けば、選択遷移と保存をまとめられてよいか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>この設計では避ける。Reducerは純粋に保ち、永続化は選択stateと外部ストレージを同期するEffectに分ける。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のReducerに対して上限、重複、解除、全解除の遷移を表で示して。不変条件を破るaction列があれば最短例を出して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-18">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-18" data-n="18" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="18">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/extracting-state-logic-into-a-reducer" target="_blank" rel="noopener noreferrer">React — Extracting State Logic into a Reducer</a> / <a href="https://react.dev/learn/updating-arrays-in-state" target="_blank" rel="noopener noreferrer">React — Updating Arrays in State</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h19">次へ →</a></div></article><article class="lesson" id="h19" data-n="19"><div class="lesson-head"><span class="hour">H19</span><h3>カスタムHook・Context・Refの境界</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">ロジック再利用と状態共有を区別する。</p><p>useQuotesへ通信処理を抽出し、戻り値を{remote, reload}にする。カスタムHookを2か所で呼んでもstateは自動共有されない。共有したい場合は共通の親で一度呼んで渡すか、必要に応じてContextを使う。今回は浅いツリーなのでPropsを維持する。</p><p>useRefは再レンダーに使わない可変値やDOM参照に向く。ref.currentの変更だけでは表示は更新されない。選択件数をrefへ移して最適化するのは誤りであり、フォーカス対象のinputを保持する用途とは分ける。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// カスタムHookの公開契約（中身はH17の処理を移す）
+// useQuotes(url: string): {
+//   remote: Remote&lt;readonly Quote[]&gt;;
+//   reload: () =&gt; void;
+// }
+const inputRef = useRef&lt;HTMLInputElement&gt;(null);
+// JSX内
+// &lt;input ref={inputRef} ... /&gt;
+// &lt;button onClick={() =&gt; inputRef.current?.focus()}&gt;検索へ&lt;/button&gt;</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>useQuotes.tsを作りAppから呼ぶ。SearchBoxへフォーカスボタンを内部実装する。Contextは実装不要。代わりに「どれだけ深くなれば検討するか」と共有する値をメモに書く。</p></div><p class="check"><strong>完了条件：</strong>通信処理がHookにまとまる。Hookを2回呼んだ場合の独立性を説明できる。Refの更新とstate更新を混同しない。</p><h4>自己説明テスト</h4><p>2つの子がuseQuotes(&quot;/quotes.json&quot;)を呼べば、同じstateと通信キャッシュを共有するか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>自作Hookが特別な共有機構を持たなければ独立する。Hookは状態を持つロジックの再利用であって、共有ストアの宣言ではない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のuseQuotesの公開APIをレビューして。再利用、共有、DOM参照を分けて考えられているか確認し、不要なContext導入は避けて。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-19">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-19" data-n="19" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="19">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/reusing-logic-with-custom-hooks" target="_blank" rel="noopener noreferrer">React — Reusing Logic with Custom Hooks</a> / <a href="https://react.dev/learn/passing-data-deeply-with-context" target="_blank" rel="noopener noreferrer">React — Passing Data Deeply with Context</a> / <a href="https://react.dev/learn/referencing-values-with-refs" target="_blank" rel="noopener noreferrer">React — Referencing Values with Refs</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h20">次へ →</a></div></article><article class="lesson" id="h20" data-n="20"><div class="lesson-head"><span class="hour">H20</span><h3>永続化・復元・壊れた保存データ</h3></div><p class="timing">読解10分 / 実装25分 / 検証5分 / 自己説明5分 / 章末15分</p><p class="goal">localStorageも検証が必要な外部境界として扱う。</p><p>お気に入りIDだけをlocalStorageへ保存する。JSON.parseは失敗しうるし、成功しても期待する型とは限らない。{version:1, ids:string[]}という形式を検証し、重複を除去する。復元したIDは最新rowsに存在するものだけ表示対象にする。</p><p>読み込みはuseStateの遅延初期化で行い、書き込みはstateとストレージの同期としてEffectに置く。読み書きの例外を捕捉し、保存できなくてもアプリ内操作は継続する。これはローカルSPA用であり、SSR環境のwindow有無は今回の範囲外とする。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>const [favoriteIds, setFavoriteIds] = useState&lt;readonly string[]&gt;(() =&gt; {
+  try { return parseFavoriteIds(localStorage.getItem(&quot;market:favorites:v1&quot;)); }
+  catch { return []; }
+});
+useEffect(() =&gt; {
+  try {
+    localStorage.setItem(&quot;market:favorites:v1&quot;,
+      JSON.stringify({ version: 1, ids: favoriteIds }));
+  } catch { /* UIに「保存できません」を表示する設計を追加 */ }
+}, [favoriteIds]);</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>parseFavoriteIdsをunknown検証で実装し、お気に入り切替と「お気に入りのみ」を追加する。正常・壊れたJSON・旧version・未知IDを確認する。最後15分で第4章テストを行う。</p></div><p class="check"><strong>完了条件：</strong>再読込後も星が復元される。保存データ破損でアプリが停止しない。保存失敗時には非永続である旨が表示される。</p><h4>自己説明テスト</h4><p>localStorageから読んだ文字列をJSON.parseしてas string[]すれば、型検査があるので安心か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>不十分。保存データの実行時形式を検証する必要がある。構文エラーと形の不一致、保存バージョンの不一致を扱う。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">永続化の境界だけをレビューして。壊れたJSON、旧version、未知ID、書込拒否でも現在の操作を継続できるか確認して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-20">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-20" data-n="20" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="20">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener noreferrer">MDN — localStorage</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h21">次へ →</a></div></article><section class="exam" id="exam-04" data-chapter="3"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第4章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. 古いリクエストの結果が新しい表示を上書きするのを防ぐには？</legend><label><input type="radio" name="q-3-0" value="0">成功と失敗の両方に結果採用ガードを置く</label><label><input type="radio" name="q-3-0" value="1">catchを削る</label><label><input type="radio" name="q-3-0" value="2">StrictModeを解除する</label><div class="feedback" id="feedback-3-0" hidden></div></fieldset><fieldset><legend>2. カスタムHookを別の2コンポーネントで呼ぶと？</legend><label><input type="radio" name="q-3-1" value="0">必ず同じstateを共有する</label><label><input type="radio" name="q-3-1" value="1">通常はそれぞれ独立したstateを持つ</label><label><input type="radio" name="q-3-1" value="2">Hookは1回しか呼べない</label><div class="feedback" id="feedback-3-1" hidden></div></fieldset><fieldset><legend>3. Reducerの責務に最も適切なのは？</legend><label><input type="radio" name="q-3-2" value="0">取得とlocalStorage書込</label><label><input type="radio" name="q-3-2" value="1">DOMの直接変更</label><label><input type="radio" name="q-3-2" value="2">stateとactionから次stateを返す</label><div class="feedback" id="feedback-3-2" hidden></div></fieldset><button class="primary grade" data-chapter="3" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-3" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢1：cleanup後はどちらの経路でもstate更新を採用しない。H17へ。</p><p>2. 選択肢2：Hookはロジックの再利用。共有には親やContextなど別の配置が必要。H19へ。</p><p>3. 選択肢3：純粋な遷移として不変条件を守る。外部同期は別の境界。H18へ。</p></details></section><div class="chapter-head" id="chapter-05"><div class="num">CHAPTER 05 · H21–25 / 5 HOURS</div><h2>比較画面と実装の仕上げ</h2><p>小さく実用的なUIにする</p></div><article class="lesson" id="h21" data-n="21"><div class="lesson-head"><span class="hour">H21</span><h3>比較用の時系列を変換する</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">表示価格と期間リターンを分離し、比較の前提をコード化する。</p><p>本教材の比較は同じUSD建ての架空8銘柄、共通5営業日、配当調整なしという学習用仕様である。各系列の初日を100とし、index=close/base×100へ変換する。期間リターンは(last/base−1)×100。価格水準そのものを同じ尺度で比較するのとは目的が違う。</p><p>欠損は0に置換せず線を切る。初日が欠損ならその銘柄は基準化不可、末日欠損なら期間リターンは—とする。先頭の有効値へ勝手に基準日をずらさない。前日比と期間リターンのラベルも明示して混同を防ぐ。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import type { Point } from &quot;./model&quot;;
+export function rebase(points: readonly Point[]) {
+  const base = points[0]?.close;
+  if (base == null || base &lt;= 0) return null;
+  return points.map(p =&gt; ({
+    date: p.date,
+    index: p.close === null ? null : p.close / base * 100
+  }));
+}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>rebaseとperiodReturnをdomain/series.tsへ実装する。比較IDから元のrowsを引いて系列を渡す。全銘柄の日付列が共通であることを比較前に確認し、不一致ならメッセージを表示する。</p></div><p class="check"><strong>完了条件：</strong>ALFAの初日100・末日110・期間+10%。ECHOは途中欠損で線が切れる。HOTELは末日欠損で期間—。空系列は基準化不可。</p><h4>自己説明テスト</h4><p>銘柄ごとに最初の有効日を基準100にすると、今回の比較仕様に適合するか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>適合しない。共通の初日を基準にする契約なので、初日欠損銘柄は比較不可とする。基準日の変更を暗黙に行わない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の基準化関数を仕様との一致でレビューして。欠損の0埋め、基準日の暗黙変更、前日比との混同を反例で確認して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-21">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-21" data-n="21" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="21">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener noreferrer">MDN — Array.sort</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h22">次へ →</a></div></article><article class="lesson" id="h22" data-n="22"><div class="lesson-head"><span class="hour">H22</span><h3>SVGとコンポーネント合成</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">小さな比較チャートを自分の変換関数から描く。</p><p>チャートライブラリーを導入せず、5点×最大3系列をSVGで描く。xは日付インデックス、yは全有効値に共通のmin/maxから決める。この座標変換は本教材の実装方針でありReactの要件ではない。min=maxのときは上下に1ずつ余白を足し、0除算を避ける。</p><p>欠損位置で連続区間を分割し、各区間をpolylineにする。1点だけの区間はcircleを表示する。色だけで系列を識別せず、凡例に銘柄名を付け、同じ値を表でも読めるようにする。SVGはviewBoxで画面幅に追従させる。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// 例：プロット領域 x=40..600, y=20..200
+const x = (i: number, n: number) =&gt; 40 + i / Math.max(1, n - 1) * 560;
+const y = (v: number, min: number, max: number) =&gt;
+  200 - (v - min) / (max - min) * 180;
+// min === max の補正を呼び出し側で行う
+// &lt;svg viewBox=&quot;0 0 640 240&quot; role=&quot;img&quot; aria-label=&quot;基準100の比較&quot;&gt;
+//   &lt;polyline points=&quot;40,200 180,164 320,128&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; /&gt;
+// &lt;/svg&gt;</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>CompareChart.tsxを作り、共通yスケール、凡例、初日・末日ラベルを追加する。ComparePanelに数値表と0件時の案内を置く。描画座標の生成は純粋関数として外へ出す。</p></div><p class="check"><strong>完了条件：</strong>0件・1件・3件で破綻しない。欠損区間をまたぐ線がない。同じ値の系列でもNaN座標にならない。</p><h4>自己説明テスト</h4><p>系列ごとに独立したmin/maxで同じSVGへ描くと何が起きるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>変動幅が異なっても同じ高さに見え、線の上下関係が共通尺度を表さなくなる。今回の基準化比較では全系列共通のスケールを使う。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">座標変換をレビューして。0件、1点、一定値、途中欠損の4ケースに絞り、ライブラリーへの置換は提案しないで。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-22">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-22" data-n="22" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="22">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/typescript" target="_blank" rel="noopener noreferrer">React — Using TypeScript</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h23">次へ →</a></div></article><article class="lesson" id="h23" data-n="23"><div class="lesson-head"><span class="hour">H23</span><h3>useMemo・参照同一性・計測</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">正しさを保ったまま、必要な箇所だけ最適化する。</p><p>useMemoは計算結果のキャッシュであり、データの永続化や正しさの保証には使わない。依存値が変われば再計算される。毎レンダーで新しいfilterオブジェクトを作って依存に入れると、期待したキャッシュにならない場合がある。</p><p>この8件のアプリではまず素直に計算する。学習実験として件数を増やしたコピーで計測し、遅い処理が確認できた場合だけmemo化する。useCallbackも関数参照を安定させる用途であり、すべてのハンドラーへ付けることを目標にしない。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>const visibleRows = useMemo(
+  () =&gt; selectQuotes(rows, { query, kind }, sort),
+  [rows, query, kind, sort]
+);
+// sortはstateとして同じ値なら同じ参照を保つ。
+// まずこのmemoなしで正しく動く実装を完成させる。</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>開発者ツールのPerformanceで絞り込みを観察する。試験用の大量データは固有IDを生成して使い、本番fixtureは8件のままにする。効果が確認できなければuseMemoを採用しない理由を記録する。</p></div><p class="check"><strong>完了条件：</strong>memoを外しても結果が同じ。測定条件と前後の時間、または導入しない判断をメモに残す。</p><h4>自己説明テスト</h4><p>useMemoのキャッシュが捨てられるとアプリの選択状態が消える設計は妥当か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>妥当でない。選択状態はstateで持つ。useMemoは再計算可能な派生値の最適化に限定し、正しさをキャッシュ維持に依存させない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">最適化案を出す前に、どの操作が何ms遅いか私に確認して。計測がなければ参照の安定化を一律に勧めず、正しさの独立性をチェックして。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-23">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-23" data-n="23" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="23">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react/useMemo" target="_blank" rel="noopener noreferrer">React — useMemo</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h24">次へ →</a></div></article><article class="lesson" id="h24" data-n="24"><div class="lesson-head"><span class="hour">H24</span><h3>使える操作・空状態・キーボード</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">見た目だけでなく操作できるダッシュボードにする。</p><p>検索欄にはlabel、ソートにはbutton、一覧にはtableとthを使う。divのクリックにキーボード操作を後付けするより、意味を持つHTML要素を選ぶ。ソート中の列にはaria-sortを付け、比較選択のボタンにはaria-pressedを使う。</p><p>データ0件、検索0件、比較0件、読込失敗はそれぞれ回復操作が異なる。検索0件には条件解除、失敗には再試行を置く。価格・欠損・騰落を色だけで表さない。学習目的の説明はREADMEへ置き、画面は利用者の操作とデータ条件を伝える。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// th上の状態と操作を分離
+&lt;th aria-sort={sort.key === &quot;price&quot;
+  ? (sort.direction === &quot;asc&quot; ? &quot;ascending&quot; : &quot;descending&quot;) : &quot;none&quot;}&gt;
+  &lt;button onClick={() =&gt; onSort(&quot;price&quot;)}&gt;価格&lt;/button&gt;
+&lt;/th&gt;
+// 比較ボタン：aria-pressed={selected}
+// disabled={!selected &amp;&amp; selectedCount &gt;= 3}</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>Tab→Enter/Spaceだけで検索・ソート・比較・解除する。フォーカスの輪郭をCSSで残す。幅375pxで表を横スクロール可能にし、操作パネルは折り返す。</p></div><p class="check"><strong>完了条件：</strong>マウスなしで主要操作が完了する。比較上限の理由が読める。幅375pxでもページ全体が横にはみ出さない。</p><h4>自己説明テスト</h4><p>プラス・マイナスを緑と赤だけで示せば十分か。</p><details class="answer"><summary>回答してから解説を開く</summary><p>不十分。数値の符号とラベルも使う。欠損も—などの文字で区別し、色を認識できない状況でも意味が伝わるようにする。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私の画面をキーボード操作と空状態の観点から点検して。装飾追加より、操作できない箇所と回復手段の不足を優先して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-24">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-24" data-n="24" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="24">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react-dom/components/input" target="_blank" rel="noopener noreferrer">React — input</a> / <a href="https://testing-library.com/docs/queries/about/" target="_blank" rel="noopener noreferrer">Testing Library — Queries</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h25">次へ →</a></div></article><article class="lesson" id="h25" data-n="25"><div class="lesson-head"><span class="hour">H25</span><h3>統合して責務を整理する</h3></div><p class="timing">読解10分 / 実装25分 / 検証5分 / 自己説明5分 / 章末15分</p><p class="goal">最終仕様の操作経路を一度通し、テスト対象を確定する。</p><p>最終構成はdomain（型・純粋関数）、data（取得・検証）、hooks（Reactの状態fulな同期）、components（表示とイベント）、App（組立て）とする。これは今回の規模向けの設計判断であり、万能なディレクトリー規約ではない。</p><p>Appが状態を所有し、子は必要な値と意図を伝えるコールバックを受ける。Quoteのコピーをお気に入りや比較へ別保存せずIDから引く。ここで一連の操作を通し、後続のテストは内部関数の呼び出し回数でなく仕様の不変条件を中心に書く。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>src/
+  domain/ model.ts selectors.ts series.ts selectionReducer.ts
+  data/ fetchJson.ts parseQuotes.ts loadQuotes.ts
+  hooks/ useQuotes.ts
+  components/ SearchBox.tsx QuoteTable.tsx QuoteRow.tsx
+              ComparePanel.tsx CompareChart.tsx Summary.tsx
+  App.tsx
+public/quotes.json
+// 実際には各行に挙げたファイルを個別に配置する。</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>「検索→選択→ソート→条件解除→3件比較→お気に入り→再読込」を実施する。失敗を再現できる手順に落とす。最後15分で第5章テストを行う。</p></div><p class="check"><strong>完了条件：</strong>最終仕様の全操作がつながっている。React importのないdomainをUIから独立して検証できる。不要な汎用層を増やしていない。</p><h4>自己説明テスト</h4><p>お気に入りとしてQuoteオブジェクトを保存し、一覧データだけ更新すると何が起きうるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>お気に入りに古い価格が残るなど、同じ銘柄のデータが二重化して不整合になる。IDを保存して現在の正規データから導く。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">最終構成をレビューして。責務の重複とstateの二重化を探し、今回の8銘柄アプリに不要な抽象化は削る方向で提案して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-25">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-25" data-n="25" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="25">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/learn/you-might-not-need-an-effect" target="_blank" rel="noopener noreferrer">React — You Might Not Need an Effect</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h26">次へ →</a></div></article><section class="exam" id="exam-05" data-chapter="4"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第5章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. 共通初日が欠損の銘柄を今回の仕様でどう比較する？</legend><label><input type="radio" name="q-4-0" value="0">初日を0とする</label><label><input type="radio" name="q-4-0" value="1">次の有効日へ黙ってずらす</label><label><input type="radio" name="q-4-0" value="2">基準化不可と明示する</label><div class="feedback" id="feedback-4-0" hidden></div></fieldset><fieldset><legend>2. useMemoを取り除いたときの望ましい性質は？</legend><label><input type="radio" name="q-4-1" value="0">結果の正しさは変わらない</label><label><input type="radio" name="q-4-1" value="1">選択状態が初期化される</label><label><input type="radio" name="q-4-1" value="2">エラーを起こしてよい</label><div class="feedback" id="feedback-4-1" hidden></div></fieldset><fieldset><legend>3. 比較上限3件に達したときの正しい操作は？</legend><label><input type="radio" name="q-4-2" value="0">すべての比較ボタンを無効化</label><label><input type="radio" name="q-4-2" value="1">未選択の追加を止め、選択済みは解除可能にする</label><label><input type="radio" name="q-4-2" value="2">自動的に最初の1件を消す</label><div class="feedback" id="feedback-4-2" hidden></div></fieldset><button class="primary grade" data-chapter="4" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-4" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢3：共通基準日の契約を保つ。H21へ。</p><p>2. 選択肢1：memoは再計算可能な値の最適化であり状態保存ではない。H23へ。</p><p>3. 選択肢2：上限と解除の回復手段を両立する仕様。H18・H24へ。</p></details></section><div class="chapter-head" id="chapter-06"><div class="num">CHAPTER 06 · H26–30 / 5 HOURS</div><h2>検証と最終実技</h2><p>変更できる理解にする</p></div><article class="lesson" id="h26" data-n="26"><div class="lesson-head"><span class="hour">H26</span><h3>Vitestで純粋関数を検証する</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">要件の境界をテストへ変換する。</p><p>ここからの5時間は、機能追加よりも理解の確認と品質の仕上げに使う。Vitestでdomain関数を直接テストする。計算式をテスト内でそのまま再実装せず、固定した入出力や不変条件を期待値にする。</p><p>浮動小数点の計算結果にはtoBeCloseToを使う。順序、欠損末尾、入力非破壊、空データ、選択上限は別々に観察する。テストが通るだけでなく、欠損判定を壊したときに意図したテストが落ちることを1回確認する。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import { describe, expect, it } from &quot;vitest&quot;;
+import { compareNullable } from &quot;./selectors&quot;;
+describe(&quot;欠損の順序&quot;, () =&gt; {
+  it.each([&quot;asc&quot;, &quot;desc&quot;] as const)(&quot;%sでも欠損は末尾&quot;, direction =&gt; {
+    expect(compareNullable(null, 10, direction)).toBeGreaterThan(0);
+    expect(compareNullable(10, null, direction)).toBeLessThan(0);
+    expect(compareNullable(null, null, direction)).toBe(0);
+  });
+});</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>セットアップ欄のテスト依存を入れる。selectors、series、selectionReducer、parseQuotesのテストを合計12ケース以上用意する。件数だけでなく、付録のテスト行列を覆うことを優先する。</p></div><p class="check"><strong>完了条件：</strong>npm run test:runが成功する。ALFAの期間リターン10、nullの昇降順末尾、4件目拒否をテストで固定する。</p><h4>自己説明テスト</h4><p>期待値も実装と同じ式で計算すると、どのような欠陥を見落としやすいか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>同じ誤りをテスト側でも再現するため、仕様との不一致が検出されない。手計算できる固定値と独立した不変条件で確かめる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">私のテストが実装のコピーになっていないかレビューして。期待値の独立性と、各テストが防ぐ回帰を説明させて。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-26">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-26" data-n="26" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="26">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://vitest.dev/guide/" target="_blank" rel="noopener noreferrer">Vitest — Getting Started</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h27">次へ →</a></div></article><article class="lesson" id="h27" data-n="27"><div class="lesson-head"><span class="hour">H27</span><h3>Testing Libraryでユーザー操作を検証する</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">役割とラベルで画面を操作し、結果を確認する。</p><p>コンポーネントテストは検索inputやbuttonを役割・アクセシブル名から探す。内部stateの値やCSSクラスへの依存を減らし、利用者が観察できる表示へ期待値を置く。userEvent.setup()でユーザー操作を作り、非同期操作はawaitする。</p><p>通信を含むAppではfixtureを返すfetchの代替をテスト内に用意し、テスト後に復元する。静的UIはpropsへfixtureを渡す方が簡単な場合もある。queryByは不在確認、findByは非同期で現れる要素の待機に使い分ける。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import { render, screen } from &quot;@testing-library/react&quot;;
+import userEvent from &quot;@testing-library/user-event&quot;;
+import { expect, it, vi } from &quot;vitest&quot;;
+import { SearchBox } from &quot;./SearchBox&quot;;
+it(&quot;入力した検索語を親へ通知する&quot;, async () =&gt; {
+  const user = userEvent.setup();
+  const onChange = vi.fn();
+  render(&lt;SearchBox value=&quot;&quot; onChange={onChange} /&gt;);
+  await user.type(screen.getByRole(&quot;textbox&quot;, { name: &quot;銘柄検索&quot; }), &quot;A&quot;);
+  expect(onChange).toHaveBeenLastCalledWith(&quot;A&quot;);
+});</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>上の小テストに加え、stateを持つAppまたはテスト用親でalfaを連続入力し、1件になる統合テストを書く。比較3件上限、全解除、検索0件から条件解除も検証する。</p></div><p class="check"><strong>完了条件：</strong>表示結果を検証し、単にコールバックが呼ばれたことだけで合格にしない。テスト間でストレージとモックをリセットする。</p><h4>自己説明テスト</h4><p>awaitせずuser.typeを呼んで直後に表示を検査すると、なぜ不安定になるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>ユーザー操作の非同期処理が完了する前に期待値を評価しうる。操作をawaitし、非同期表示はfindByなどで待つ。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">UIテストをレビューして。DOM実装詳細への依存、await漏れ、単なる通知確認で終わっている箇所を指摘して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-27">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-27" data-n="27" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="27">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://testing-library.com/docs/react-testing-library/setup/" target="_blank" rel="noopener noreferrer">Testing Library — Setup</a> / <a href="https://testing-library.com/docs/queries/about/" target="_blank" rel="noopener noreferrer">Testing Library — Queries</a> / <a href="https://testing-library.com/docs/user-event/intro/" target="_blank" rel="noopener noreferrer">Testing Library — user-event</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h28">次へ →</a></div></article><article class="lesson" id="h28" data-n="28"><div class="lesson-head"><span class="hour">H28</span><h3>競合・エラー・復元の回帰テスト</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">正常系だけでは検出できない状態遷移を固定する。</p><p>固定時間のsleepを増やすと、タイミング依存のテストになりやすい。Promiseの解決をテスト側で制御すれば、A→B→B成功→A成功という順番を意図的に作れる。Reactへの非同期更新はTesting Libraryの待機やactに合わせる。</p><p>読み込み失敗は表示と再試行、壊れた保存データは初期化と継続操作まで確かめる。キャンセルでerror画面にならないことも確認する。テストのために公開APIを増やしすぎず、loaderを引数で差し替える小さな境界かfetchモックを使う。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>function deferred&lt;T&gt;() {
+  let resolve!: (value: T | PromiseLike&lt;T&gt;) =&gt; void;
+  let reject!: (reason?: unknown) =&gt; void;
+  const promise = new Promise&lt;T&gt;((res, rej) =&gt; {
+    resolve = res; reject = rej;
+  });
+  return { promise, resolve, reject };
+}
+// ! はこのテスト補助内のみ：Promise executorが同期実行されるため。
+// 本体のJSON処理で ! を使って欠損を隠さない。</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>遅いAと速いBのloaderを用意し、B表示後にAを解決・拒否する2ケースを書く。fetch拒否→再試行成功、storage破損→お気に入り再登録も追加する。</p></div><p class="check"><strong>完了条件：</strong>Aの後着結果でBが上書きされない。再試行が新しい取得を開始する。テストは不要な固定sleepに依存しない。</p><h4>自己説明テスト</h4><p>「Aをabortした」というモック呼び出し確認だけで、古い結果の上書き防止は証明できるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>できない。最終的に表示されたデータがBであることを確認する必要がある。中断を無視する代替loaderでも結果採用ガードが働くことを確かめる。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">競合テストの順序をレビューして。実際にAが後着しているか、表示結果で合否を判定しているかを確認して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-28">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-28" data-n="28" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="28">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a> / <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN — Promise</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h29">次へ →</a></div></article><article class="lesson" id="h29" data-n="29"><div class="lesson-head"><span class="hour">H29</span><h3>型検査・ビルド・ローカル配布</h3></div><p class="timing">読解15分 / 実装30分 / 検証10分 / 自己説明5分</p><p class="goal">開発時に動くことと、再現できる成果物を区別する。</p><p>Viteの変換だけに型検査を任せない。typecheck、test:run、lint、buildをそれぞれ実行し、生成されたdistをpreviewで確認する。プロジェクト生成時に依存の実際のバージョンを記録し、package-lock.jsonを保存する。</p><p>この教材のHTML自体は直接開けるが、作成するReactアプリは開発サーバーまたはpreview経由で動かす。dist/index.htmlをfile://で開く手順にはしない。ブラウザーへ配信される環境変数は秘匿領域ではないので、実データAPIの秘密鍵は今回導入しない。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>npm run typecheck
+npm run test:run
+npm run lint
+npm run build
+npm run preview
+# 別ターミナルで依存の実バージョンを記録
+npm ls --depth=0
+# 別の作業コピーでは package-lock.json を保ち npm ci を使う</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>全コマンドを実行し、previewで主要操作を確認する。READMEへNodeバージョン、インストール・実行・検証手順、架空データ、比較の前提、既知の制限を書く。</p></div><p class="check"><strong>完了条件：</strong>型検査・テスト・lint・buildがすべて成功。previewでquotes.jsonが取得できる。READMEだけでローカル再現手順がわかる。</p><h4>自己説明テスト</h4><p>VITE_API_KEYに秘密鍵を置けば、.envをGit管理しなければブラウザーからは隠せるか。</p><details class="answer"><summary>回答してから解説を開く</summary><p>隠せない。クライアントへ埋め込まれる値はブラウザーで参照可能。この教材では認証不要のローカル架空JSONだけを使う。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">READMEと実行手順をレビューして。新しいローカル作業コピーから再現できるか、環境依存や欠けたコマンドを指摘して。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-29">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-29" data-n="29" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="29">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite — Getting Started</a> / <a href="https://www.typescriptlang.org/tsconfig/" target="_blank" rel="noopener noreferrer">TSConfig Reference</a> / <a href="https://vite.dev/guide/env-and-mode" target="_blank" rel="noopener noreferrer">Vite — Env Variables and Modes</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#h30">次へ →</a></div></article><article class="lesson" id="h30" data-n="30"><div class="lesson-head"><span class="hour">H30</span><h3>最終実技・設計の説明・次の一歩</h3></div><p class="timing">最終実技30分 / 検証10分 / 自己説明5分 / 最終テスト15分</p><p class="goal">小変更を自力で通し、理解と生成AIへの依存を分けて評価する。</p><p>最後はAIの生成コードを増やさず、既存の構成に小さな変更を通す。「前日比が正の銘柄のみ」というフィルターを追加し、型、純粋関数、UI、テストへ一貫して反映する。stateをどこへ置いたか、派生値を何から計算したかを自分で説明する。</p><p>完成の基準は見た目の派手さではなく、定義した操作が動き、壊れやすい境界が検証され、変更の影響を追えること。この30時間で扱わないSSR、認証、ルーティング、外部状態管理、実配信データは次の段階へ送る。</p><h4>コードで確かめる</h4><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// 変更する契約の例
+// type Filter = {
+//   query: string;
+//   kind: Kind | &quot;all&quot;;
+//   positiveOnly: boolean;
+// };
+// nullと0は対象外。前日比 &gt; 0 のみ。
+// 実装、UI、テストの差分を自分で作成する。</code></pre></div><div class="task"><h4>この1時間で実装すること</h4><p>前半30分で最終実技を実装し10分でテスト、5分で自己説明する。最後15分で第6章テストと最終採点を行う。AIはエラー解釈のヒントに限定し、解答一式を要求しない。</p></div><p class="check"><strong>完了条件：</strong>正の前日比だけに絞れる。ALFAは含み、GAMMA（0%）・BETA（負）・HOTEL（欠損）は除外。解除すると元の条件結果へ戻る。</p><h4>自己説明テスト</h4><p>このアプリで最も重要な境界を3つ選び、それぞれの保証と保証しないことを説明せよ。</p><details class="answer"><summary>回答してから解説を開く</summary><p>例：JSON境界は構造と値制約を検証するがデータの実市場での正しさは保証しない。Reducerは選択件数を守るがIDの存在は呼出側・正規データとの照合が担う。Effectは現在のリクエストだけを採用するがネットワーク成功そのものは保証しない。</p></details><details><summary>生成AIへ渡すプロンプト</summary><p class="ai">最終口頭試問をして。型消去、スナップショット、Effect、競合、テストから1問ずつ。私の回答を待ち、正答の先出しや機能追加の提案はしないで。</p><p class="small">添付：自分のコード、期待結果、実際の結果。業務コードや実データは不要です。</p></details><label class="noteslabel" for="note-30">学習メモ / 出力予測と自分の説明</label><textarea class="notes" id="note-30" data-n="30" placeholder="予想 → 実行結果 → 理由 → 残った疑問"></textarea><label class="completion"><input type="checkbox" data-n="30">完了条件を確認し、自分の言葉で説明できた</label><p class="sources">根拠・参照：<a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html" target="_blank" rel="noopener noreferrer">TypeScript for Java/C# Programmers</a> / <a href="https://react.dev/learn/state-as-a-snapshot" target="_blank" rel="noopener noreferrer">React — State as a Snapshot</a> / <a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a></p><div class="sectionnav"><a href="#spec">最終仕様へ</a><a href="#rubric">次へ →</a></div></article><section class="exam" id="exam-06" data-chapter="5"><div class="eyebrow" style="color:var(--accent)">CHAPTER CHECK</div><h3>第6章末テスト</h3><p>まず解説を見ずに3問へ回答してください。<strong>3/3正解</strong>に加え、この章の実装課題を動かせれば通過です。再挑戦できますが、選択肢の暗記ではなく誤答に対応するコマへ戻り、反例を実行してください。</p><fieldset><legend>1. UIテストで利用者の操作に近い取得方法は？</legend><label><input type="radio" name="q-5-0" value="0">DOMの3番目のdiv</label><label><input type="radio" name="q-5-0" value="1">コンポーネントの内部state</label><label><input type="radio" name="q-5-0" value="2">roleとアクセシブル名</label><div class="feedback" id="feedback-5-0" hidden></div></fieldset><fieldset><legend>2. 競合テストの最も強い確認は？</legend><label><input type="radio" name="q-5-1" value="0">abort関数が呼ばれたことだけ</label><label><input type="radio" name="q-5-1" value="1">Aが後着しても表示がBのままであること</label><label><input type="radio" name="q-5-1" value="2">1000ms待ったこと</label><div class="feedback" id="feedback-5-1" hidden></div></fieldset><fieldset><legend>3. 型検査・UIテスト・ビルドの関係は？</legend><label><input type="radio" name="q-5-2" value="0">別々の保証なのでそれぞれ実行する</label><label><input type="radio" name="q-5-2" value="1">build成功ですべて代替できる</label><label><input type="radio" name="q-5-2" value="2">UIが見えれば不要</label><div class="feedback" id="feedback-5-2" hidden></div></fieldset><button class="primary grade" data-chapter="5" style="margin-top:18px">採点して解説を見る</button><div class="quizresult" id="result-5" aria-live="polite"></div><details class="print-answer"><summary>章末解答一覧（自力回答の後に）</summary><p>1. 選択肢3：利用者が認識する役割とラベルを基準にする。H27へ。</p><p>2. 選択肢2：内部の呼び出しより観察可能な契約を検証する。H28へ。</p><p>3. 選択肢1：型、動作、生成物の検証は別の観点。H29へ。</p></details></section><section class="panel" id="appendix"><h2>付録：演習ファイルと参照実装</h2><p>次のボタンでHTML内のデータをファイルへ保存できます。指定のフォルダーへ移して使ってください。完成アプリを丸ごとコピーする代わりに、モデルと境界の足場を共有し、機能本体は各コマの課題として実装します。</p><div class="toolbar"><button data-download="model">model.tsを保存</button><button data-download="fixture">quotes.jsonを保存</button><button data-download="parser">parseQuotes.tsを保存</button><button data-download="seed">seed.tsを保存</button></div><div class="tablewrap"><table><thead><tr><th>ファイル</th><th>保存先</th><th>使う時間</th></tr></thead><tbody><tr><td>model.ts</td><td>src/domain/model.ts</td><td>H02以降。RemoteはH04で追加。</td></tr><tr><td>quotes.json</td><td>public/quotes.json</td><td>H08以降のHTTP取得。</td></tr><tr><td>parseQuotes.ts</td><td>src/data/parseQuotes.ts</td><td>H09。境界検証の参照実装。</td></tr><tr><td>seed.ts</td><td>src/data/seed.ts</td><td>H11〜15の静的UI。H16以降はHTTP取得へ移行。</td></tr></tbody></table></div><details><summary>model.tsを読む</summary><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>export type Kind = &quot;equity&quot; | &quot;etf&quot;;
+export type Point = Readonly&lt;{ date: string; close: number | null }&gt;;
+export type Quote = Readonly&lt;{
+  id: string;
+  symbol: string;
+  name: string;
+  kind: Kind;
+  currency: &quot;USD&quot;;
+  price: number | null;
+  previousClose: number | null;
+  history: readonly Point[];
+}&gt;;
+export type Filter = Readonly&lt;{ query: string; kind: Kind | &quot;all&quot; }&gt;;
+export type Sort = Readonly&lt;{
+  key: &quot;symbol&quot; | &quot;price&quot; | &quot;changePct&quot;;
+  direction: &quot;asc&quot; | &quot;desc&quot;;
+}&gt;;
+// H04でRemote&lt;T&gt;をここに追加する。
+</code></pre></div></details><details><summary>parseQuotes.tsを読む</summary><p>型ガード自体の正しさもテスト対象です。実行時の深い凍結は行いません。unknownから必要な値を取り出して新しいオブジェクトに正規化します。共通の日付列を持つかは比較処理側で確かめます。</p><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import type { Point, Quote } from &quot;../domain/model&quot;;
+function isRecord(x: unknown): x is Record&lt;string, unknown&gt; {
+  return typeof x === &quot;object&quot; &amp;&amp; x !== null &amp;&amp; !Array.isArray(x);
+}
+function isPrice(x: unknown): x is number | null {
+  return x === null || (typeof x === &quot;number&quot; &amp;&amp; Number.isFinite(x) &amp;&amp; x &gt; 0);
+}
+function isText(x: unknown): x is string {
+  return typeof x === &quot;string&quot; &amp;&amp; x.trim().length &gt; 0;
+}
+function isDate(x: unknown): x is string {
+  if (typeof x !== &quot;string&quot; || !/^\d{4}-\d{2}-\d{2}$/.test(x)) return false;
+  const d = new Date(x + &quot;T00:00:00Z&quot;);
+  return Number.isFinite(d.getTime()) &amp;&amp; d.toISOString().slice(0, 10) === x;
+}
+function isPoint(x: unknown): x is Point {
+  return isRecord(x) &amp;&amp; isDate(x.date) &amp;&amp; isPrice(x.close);
+}
+function parseQuote(x: unknown, row: number): Quote {
+  if (!isRecord(x) || !isText(x.id) || !isText(x.symbol) || !isText(x.name)
+      || (x.kind !== &quot;equity&quot; &amp;&amp; x.kind !== &quot;etf&quot;) || x.currency !== &quot;USD&quot;
+      || !isPrice(x.price) || !isPrice(x.previousClose)
+      || !Array.isArray(x.history)) {
+    throw new Error(`row ${row}: invalid quote`);
+  }
+  const history: Point[] = x.history.map((p: unknown, i: number) =&gt; {
+    if (!isPoint(p)) throw new Error(`row ${row}, point ${i}: invalid point`);
+    return { date: p.date, close: p.close };
+  });
+  for (let i = 1; i &lt; history.length; i++) {
+    const previous = history[i - 1];
+    const current = history[i];
+    if (previous &amp;&amp; current &amp;&amp; previous.date &gt;= current.date)
+      throw new Error(`row ${row}: dates must be unique and ascending`);
+  }
+  const last = history[history.length - 1];
+  const previous = history[history.length - 2];
+  if (last &amp;&amp; last.close !== x.price)
+    throw new Error(`row ${row}: price does not match last close`);
+  if (previous &amp;&amp; previous.close !== x.previousClose)
+    throw new Error(`row ${row}: previousClose mismatch`);
+  return { id: x.id, symbol: x.symbol, name: x.name, kind: x.kind,
+    currency: x.currency, price: x.price, previousClose: x.previousClose, history };
+}
+export function parseQuotes(raw: unknown): readonly Quote[] {
+  if (!Array.isArray(raw)) throw new Error(&quot;Expected a quote array&quot;);
+  const ids = new Set&lt;string&gt;();
+  const symbols = new Set&lt;string&gt;();
+  return raw.map((x: unknown, i: number) =&gt; {
+    const q = parseQuote(x, i);
+    if (ids.has(q.id) || symbols.has(q.symbol))
+      throw new Error(`row ${i}: duplicate id or symbol`);
+    ids.add(q.id); symbols.add(q.symbol);
+    return q;
+  });
+}
+</code></pre></div></details><details><summary>quotes.jsonを読む</summary><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>[
+  {
+    &quot;id&quot;: &quot;ALFA&quot;,
+    &quot;symbol&quot;: &quot;ALFA&quot;,
+    &quot;name&quot;: &quot;Alpha Systems&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 110,
+    &quot;previousClose&quot;: 108,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 100
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 102
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 104
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 108
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 110
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;BETA&quot;,
+    &quot;symbol&quot;: &quot;BETA&quot;,
+    &quot;name&quot;: &quot;Beta Works&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 78,
+    &quot;previousClose&quot;: 79,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 80
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 82
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 81
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 79
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 78
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;GAMMA&quot;,
+    &quot;symbol&quot;: &quot;GAMMA&quot;,
+    &quot;name&quot;: &quot;Gamma Labs&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 60,
+    &quot;previousClose&quot;: 60,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 60
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 61
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 60
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 60
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 60
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;DELTA&quot;,
+    &quot;symbol&quot;: &quot;DELTA&quot;,
+    &quot;name&quot;: &quot;Delta Industries&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 126,
+    &quot;previousClose&quot;: 124,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 120
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 118
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 122
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 124
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 126
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;ECHO&quot;,
+    &quot;symbol&quot;: &quot;ECHO&quot;,
+    &quot;name&quot;: &quot;Echo Services&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 55,
+    &quot;previousClose&quot;: 54,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 50
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 51
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: null
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 54
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 55
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;FOXT&quot;,
+    &quot;symbol&quot;: &quot;FOXT&quot;,
+    &quot;name&quot;: &quot;Foxt Broad Index&quot;,
+    &quot;kind&quot;: &quot;etf&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 206,
+    &quot;previousClose&quot;: 204,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 200
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 202
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 201
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 204
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 206
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;GOLF&quot;,
+    &quot;symbol&quot;: &quot;GOLF&quot;,
+    &quot;name&quot;: &quot;Golf Technology Basket&quot;,
+    &quot;kind&quot;: &quot;etf&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: 160,
+    &quot;previousClose&quot;: 157,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 150
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 153
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 155
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 157
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: 160
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: &quot;HOTEL&quot;,
+    &quot;symbol&quot;: &quot;HOTEL&quot;,
+    &quot;name&quot;: &quot;Hotel Research&quot;,
+    &quot;kind&quot;: &quot;equity&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;price&quot;: null,
+    &quot;previousClose&quot;: 43,
+    &quot;history&quot;: [
+      {
+        &quot;date&quot;: &quot;2026-09-07&quot;,
+        &quot;close&quot;: 40
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-08&quot;,
+        &quot;close&quot;: 41
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-09&quot;,
+        &quot;close&quot;: 42
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-10&quot;,
+        &quot;close&quot;: 43
+      },
+      {
+        &quot;date&quot;: &quot;2026-09-11&quot;,
+        &quot;close&quot;: null
+      }
+    ]
+  }
+]</code></pre></div></details><h3>関数契約を固定する</h3><p>H10では以下の公開契約に揃えます。お気に入り条件はH20で、favoriteIdsからrowsを事前に絞る方法でも、Filterを拡張する方法でも構いません。比較対象は表示用visibleRowsではなく、全体のrowsから選びます。</p><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>// src/domain/selectors.ts：H10で実装
+// import type { Quote, Filter, Sort } from &quot;./model&quot;;
+// changePct(q: Quote): number | null
+// selectQuotes(rows: readonly Quote[], filter: Filter, sort: Sort): readonly Quote[]
+// compareNullable(a: number | null, b: number | null,
+//                 direction: &quot;asc&quot; | &quot;desc&quot;): number
+
+// src/domain/series.ts：H21で実装
+// rebase(points: readonly Point[]):
+//   { date: string; index: number | null }[] | null
+// periodReturn(points: readonly Point[]): number | null</code></pre></div><details><summary>H10の参照実装（自分で実装した後に）</summary><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import type { Quote, Filter, Sort } from &quot;./model&quot;;
+export function changePct(q: Quote): number | null {
+  if (q.price === null || q.previousClose === null || q.previousClose &lt;= 0)
+    return null;
+  return (q.price / q.previousClose - 1) * 100;
+}
+export function compareNullable(a: number | null, b: number | null,
+  direction: &quot;asc&quot; | &quot;desc&quot;): number {
+  if (a === null) return b === null ? 0 : 1;
+  if (b === null) return -1;
+  return direction === &quot;asc&quot; ? a - b : b - a;
+}
+export function selectQuotes(rows: readonly Quote[], filter: Filter, sort: Sort) {
+  const term = filter.query.trim().toLowerCase();
+  const filtered = rows.filter(q =&gt;
+    (filter.kind === &quot;all&quot; || q.kind === filter.kind) &amp;&amp;
+    (q.symbol.toLowerCase().includes(term) || q.name.toLowerCase().includes(term))
+  );
+  return [...filtered].sort((a, b) =&gt; {
+    if (sort.key === &quot;symbol&quot;) return sort.direction === &quot;asc&quot;
+      ? a.symbol.localeCompare(b.symbol) : b.symbol.localeCompare(a.symbol);
+    const av = sort.key === &quot;price&quot; ? a.price : changePct(a);
+    const bv = sort.key === &quot;price&quot; ? b.price : changePct(b);
+    return compareNullable(av, bv, sort.direction) || a.symbol.localeCompare(b.symbol);
+  });
+}</code></pre></div></details><details><summary>H21の期間リターン：参照実装</summary><div class="codewrap"><button class="copy" type="button">コピー</button><pre><code>import type { Point } from &quot;./model&quot;;
+export function periodReturn(points: readonly Point[]): number | null {
+  const first = points[0]?.close;
+  const last = points[points.length - 1]?.close;
+  if (first == null || last == null || first &lt;= 0) return null;
+  return (last / first - 1) * 100;
+}</code></pre></div></details><h3>よくある停止点</h3><div class="tablewrap"><table><thead><tr><th>症状</th><th>確認と対処</th></tr></thead><tbody><tr><td>TSXで&lt;T&gt;がタグ扱いされる</td><td>ジェネリックなarrow関数なら&lt;T,&gt;とするかfunction宣言へ変える。型アサーションはTSXではasを使う。</td></tr><tr><td>import typeの診断</td><td>型しか使わないQuote等はimport typeで取り込む。関数をtype importにすると実行時に呼べない。</td></tr><tr><td>JSONをfetchしたのにHTMLが返る</td><td>NetworkタブでURL・status・responseを確認。quotes.jsonはpublic直下、取得URLは/quotes.json。</td></tr><tr><td>入力欄に打った文字が戻る</td><td>制御入力のvalueに対応するstateをonChangeで更新しているか確認。H14へ。</td></tr><tr><td>Effectが繰り返される</td><td>毎回作るオブジェクト依存、Effect内のstate更新、依存値の関係を確認。lint無効化で隠さない。</td></tr><tr><td>テストでdocumentがない</td><td>vitest.config.tsがプロジェクト直下にあるか、environment:jsdomか確認。</td></tr><tr><td>教材の進捗が消える</td><td>保存場所・ブラウザー・ストレージ制限の影響を受けるため、進捗JSONの書き出しと読み込みを使う。</td></tr></tbody></table></div></section><section class="panel" id="rubric"><h2>最終採点と検証行列</h2><p>選択式テストだけで理解を判断しません。最終実技、実装の受入条件、説明の3つを照合します。下の点数は自己採点用で、HTMLがコードを解析して付ける点数ではありません。<strong>80/100点以上</strong>かつ、型アサーションによるJSON検証の省略・通信競合・選択上限違反が残っていないことを完了条件にします。</p><div class="tablewrap"><table class="rubric"><thead><tr><th>観点</th><th>満点の基準</th><th>上限</th><th>自己採点</th></tr></thead><tbody><tr><td>TypeScriptの設計</td><td>unknown境界、Union、null、readonlyを理由付きで説明できる</td><td>20</td><td><input type="number" min="0" max="20" value="0" data-score="0" aria-label="TypeScriptの設計の点数"></td></tr><tr><td>Reactの理解</td><td>state所有者、派生値、key、スナップショットが一貫している</td><td>20</td><td><input type="number" min="0" max="20" value="0" data-score="1" aria-label="Reactの理解の点数"></td></tr><tr><td>非同期と永続化</td><td>成功・失敗・再試行・競合・保存破損の経路を処理できる</td><td>20</td><td><input type="number" min="0" max="20" value="0" data-score="2" aria-label="非同期と永続化の点数"></td></tr><tr><td>機能と操作</td><td>一覧、検索、ソート、比較、お気に入り、キーボード操作が仕様どおり</td><td>20</td><td><input type="number" min="0" max="20" value="0" data-score="3" aria-label="機能と操作の点数"></td></tr><tr><td>検証と最終変更</td><td>境界テストが回帰を検出し、positiveOnly追加を自力で通した</td><td>20</td><td><input type="number" min="0" max="20" value="0" data-score="4" aria-label="検証と最終変更の点数"></td></tr></tbody></table></div><p id="rubricTotal" aria-live="polite">自己採点：0 / 100</p><p class="small">各観点：0点＝未実装、10点＝正常系は動くが境界・説明が不足、15点＝境界も動くが一部補助が必要、20点＝独力で説明・変更・検証できる。該当する中間点を付けても構いません。</p><h3>最低限通す検証</h3><div class="tablewrap"><table><thead><tr><th>対象</th><th>入力・操作</th><th>期待結果</th></tr></thead><tbody><tr><td>検索</td><td>空文字 / &quot; ALFA &quot; / 未知語</td><td>8件 / 1件 / 0件</td></tr><tr><td>AND条件</td><td>kind=etf ＋ query=alfa</td><td>0件</td></tr><tr><td>種別</td><td>kind=etf</td><td>FOXT・GOLFの2件</td></tr><tr><td>価格昇順</td><td>全件、昇順</td><td>ECHO, GAMMA, BETA, ALFA, DELTA, GOLF, FOXT, HOTEL</td></tr><tr><td>価格降順</td><td>全件、降順</td><td>FOXT, GOLF, DELTA, ALFA, BETA, GAMMA, ECHO, HOTEL</td></tr><tr><td>同値・非破壊</td><td>同価格2銘柄 / 元配列を保持</td><td>symbol昇順 / 元配列と要素は不変</td></tr><tr><td>前日比</td><td>ALFA=110 / 108</td><td>約+1.851852%（表示+1.85%）</td></tr><tr><td>欠損・無効分母</td><td>price=null、previousClose=nullまたは0</td><td>前日比null</td></tr><tr><td>比較上限</td><td>A→B→C→D→B</td><td>3件維持、その後Bだけ解除</td></tr><tr><td>比較保持</td><td>選択した銘柄を検索で隠す</td><td>比較パネルには残る</td></tr><tr><td>期間</td><td>ALFAの100→110</td><td>基準100→110、期間+10%</td></tr><tr><td>欠損系列</td><td>ECHO途中null / HOTEL末日null</td><td>線を切る / 期間—</td></tr><tr><td>退化ケース</td><td>空系列 / 一定値 / 1点</td><td>例外なし / NaNなし / 点を表示</td></tr><tr><td>JSON検証</td><td>文字列price、重複ID、不正日付、負値</td><td>明示的な検証エラー</td></tr><tr><td>競合</td><td>A開始→B開始→B成功→A成功または失敗</td><td>Bの表示が保たれる</td></tr><tr><td>通信</td><td>失敗→再試行→成功</td><td>error→loading→success</td></tr><tr><td>復元</td><td>保存→再読込 / 壊れたJSON</td><td>お気に入り復元 / 操作継続</td></tr><tr><td>最終実技</td><td>positiveOnlyをON</td><td>ALFA含む、BETA・GAMMA・HOTEL除外</td></tr><tr><td>ローカル完成</td><td>typecheck / test:run / lint / build / preview</td><td>全成功、主要操作が動く</td></tr></tbody></table></div><h3>30時間の後に説明できること</h3><p>「このデータはどこで検証されるか」「このstateはなぜ必要か」「このEffectは何と同期するか」「古い応答はどう除外するか」「このテストはどの不変条件を守るか」を、実際のファイルを指しながら説明してください。答えが曖昧なところだけ対応するコマへ戻り、短い反例を追加してから次の題材へ進みます。</p></section><section class="panel" id="references"><h2>出典と設計判断の区別</h2><p>言語・ライブラリーの挙動は以下の公式資料・仕様解説に基づいています。各コマ末尾にも関連リンクを付けました。時間配分、テーマ、ディレクトリー構成、受入条件、テストの採点基準、コード例は本教材のために作成した設計・演習です。出典の文章を読む代わりに、実装と反例を通して理解を確かめる構成にしています。</p><div class="tablewrap"><table><thead><tr><th>資料</th><th>関連コマ</th></tr></thead><tbody><tr><td><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html" target="_blank" rel="noopener noreferrer">TypeScript for Java/C# Programmers</a></td><td>H01, H02, H30</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript — Narrowing</a></td><td>H03, H04, H09</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Everyday Types</a></td><td>H02</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/objects.html" target="_blank" rel="noopener noreferrer">TypeScript — Object Types</a></td><td>H05</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html" target="_blank" rel="noopener noreferrer">TypeScript — Generics</a></td><td>H06</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html" target="_blank" rel="noopener noreferrer">TypeScript 4.9 — satisfies</a></td><td>H02, H06</td></tr><tr><td><a href="https://www.typescriptlang.org/tsconfig/" target="_blank" rel="noopener noreferrer">TSConfig Reference</a></td><td>H03, H29</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/mapped-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Mapped Types</a></td><td>H06</td></tr><tr><td><a href="https://www.typescriptlang.org/docs/handbook/2/conditional-types.html" target="_blank" rel="noopener noreferrer">TypeScript — Conditional Types</a></td><td>H06</td></tr><tr><td><a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite — Getting Started</a></td><td>H01, H29</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener noreferrer">MDN — JavaScript modules</a></td><td>H07</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures" target="_blank" rel="noopener noreferrer">MDN — Closures</a></td><td>H07</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener noreferrer">MDN — Array.sort</a></td><td>H05, H10, H21</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener noreferrer">MDN — Promise</a></td><td>H08, H28</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN — Using Fetch</a></td><td>H08, H09, H17</td></tr><tr><td><a href="https://react.dev/learn/typescript" target="_blank" rel="noopener noreferrer">React — Using TypeScript</a></td><td>H11, H14, H22</td></tr><tr><td><a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">React — Render and Commit</a></td><td>H12</td></tr><tr><td><a href="https://react.dev/learn/state-as-a-snapshot" target="_blank" rel="noopener noreferrer">React — State as a Snapshot</a></td><td>H13, H30</td></tr><tr><td><a href="https://react.dev/learn/queueing-a-series-of-state-updates" target="_blank" rel="noopener noreferrer">React — Queueing State Updates</a></td><td>H13</td></tr><tr><td><a href="https://react.dev/learn/updating-arrays-in-state" target="_blank" rel="noopener noreferrer">React — Updating Arrays in State</a></td><td>H18</td></tr><tr><td><a href="https://react.dev/learn/preserving-and-resetting-state" target="_blank" rel="noopener noreferrer">React — Preserving and Resetting State</a></td><td>H15</td></tr><tr><td><a href="https://react.dev/reference/react-dom/components/input" target="_blank" rel="noopener noreferrer">React — input</a></td><td>H14, H24</td></tr><tr><td><a href="https://react.dev/learn/you-might-not-need-an-effect" target="_blank" rel="noopener noreferrer">React — You Might Not Need an Effect</a></td><td>H15, H16, H25</td></tr><tr><td><a href="https://react.dev/reference/react/useEffect" target="_blank" rel="noopener noreferrer">React — useEffect</a></td><td>H12, H16, H17, H28, H30</td></tr><tr><td><a href="https://react.dev/learn/extracting-state-logic-into-a-reducer" target="_blank" rel="noopener noreferrer">React — Extracting State Logic into a Reducer</a></td><td>H18</td></tr><tr><td><a href="https://react.dev/learn/reusing-logic-with-custom-hooks" target="_blank" rel="noopener noreferrer">React — Reusing Logic with Custom Hooks</a></td><td>H19</td></tr><tr><td><a href="https://react.dev/learn/passing-data-deeply-with-context" target="_blank" rel="noopener noreferrer">React — Passing Data Deeply with Context</a></td><td>H19</td></tr><tr><td><a href="https://react.dev/learn/referencing-values-with-refs" target="_blank" rel="noopener noreferrer">React — Referencing Values with Refs</a></td><td>H19</td></tr><tr><td><a href="https://react.dev/reference/react/useMemo" target="_blank" rel="noopener noreferrer">React — useMemo</a></td><td>H23</td></tr><tr><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noopener noreferrer">MDN — localStorage</a></td><td>H20</td></tr><tr><td><a href="https://vitest.dev/guide/" target="_blank" rel="noopener noreferrer">Vitest — Getting Started</a></td><td>H26</td></tr><tr><td><a href="https://testing-library.com/docs/react-testing-library/setup/" target="_blank" rel="noopener noreferrer">Testing Library — Setup</a></td><td>H27</td></tr><tr><td><a href="https://testing-library.com/docs/queries/about/" target="_blank" rel="noopener noreferrer">Testing Library — Queries</a></td><td>H24, H27</td></tr><tr><td><a href="https://testing-library.com/docs/user-event/intro/" target="_blank" rel="noopener noreferrer">Testing Library — user-event</a></td><td>H27</td></tr><tr><td><a href="https://vite.dev/guide/env-and-mode" target="_blank" rel="noopener noreferrer">Vite — Env Variables and Modes</a></td><td>H29</td></tr><tr><td><a href="https://vite.dev/guide/features" target="_blank" rel="noopener noreferrer">Vite — Features</a></td><td>H01</td></tr><tr><td><a href="https://vitest.dev/config/" target="_blank" rel="noopener noreferrer">Vitest — Configuring Vitest</a></td><td>セットアップ</td></tr></tbody></table></div><p class="small">資料確認日：2026-09-19。リンク先は更新されるため、セットアップ時の要件や診断が異なる場合は、手元のバージョンを記録して公式資料と照合してください。</p></section></main><div id="toast" role="status" aria-live="polite"></div><script type="application/json" id="course-data">{"quizzes": [[["型注釈を付けたJSONの実行時検証について正しいものは？", ["型引数Tが検証器を生成する", "unknownとして受け取り、値を検査する", "as Tが値をTへ変換する"], 1, "型注釈とasは実行時検証にならない。unknownから検査して採用する。H01・H03へ。"], ["0を有効値として残しnullだけを既定値へ置き換える式は？", ["value || 100", "value ? value : 100", "value ?? 100"], 2, "??はnull/undefinedを対象にする。||やtruthinessは0も落としてしまう。H03へ。"], ["配列をスプレッドで複製したとき、元の要素オブジェクトとの関係は？", ["要素の参照は共有される", "すべての要素も深く複製される", "元配列が凍結される"], 0, "浅いコピーであり、更新対象の要素もコピーする必要がある。H05へ。"]], [["keyof TとT[K]で表せる関係は？", ["Tの実行時クラス名", "存在するキーと対応する値の型", "JSONスキーマの自動検証"], 1, "引数キーを制約し戻り値の型関係を保持できる。型演算は実行時処理を作らない。H06へ。"], ["fetchがHTTP 404を返した場合は？", ["常にcatchへ直行する", "必ずnullを返す", "Responseを受け取るのでokを確認する"], 2, "ネットワーク拒否とHTTPエラーステータスは異なる。H08へ。"], ["昇順・降順ともnullを末尾に置くには？", ["欠損を先に分岐し、有効値の比較だけ方向を変える", "昇順結果をreverseする", "nullを0にする"], 0, "欠損の位置はソート方向から独立した規則。H10へ。"]], [["初期値0でsetN(n+1)を同じハンドラー内で2回呼ぶと？", ["2", "1", "毎回異なる"], 1, "同じスナップショットのn=0から1を2回指定する。H13へ。"], ["rowsとfilterから計算できるvisibleRowsの置き場所は？", ["別stateとEffect", "DOMから読み取る", "レンダー時の派生値"], 2, "二重の状態同期を作らず入力から導く。H15へ。"], ["ソートできる銘柄行のkeyとして適切なのは？", ["現在の配列index", "毎回生成する乱数", "安定した銘柄ID"], 2, "順序が変わっても同じ行の同一性を保つ。H15へ。"]], [["古いリクエストの結果が新しい表示を上書きするのを防ぐには？", ["成功と失敗の両方に結果採用ガードを置く", "catchを削る", "StrictModeを解除する"], 0, "cleanup後はどちらの経路でもstate更新を採用しない。H17へ。"], ["カスタムHookを別の2コンポーネントで呼ぶと？", ["必ず同じstateを共有する", "通常はそれぞれ独立したstateを持つ", "Hookは1回しか呼べない"], 1, "Hookはロジックの再利用。共有には親やContextなど別の配置が必要。H19へ。"], ["Reducerの責務に最も適切なのは？", ["取得とlocalStorage書込", "DOMの直接変更", "stateとactionから次stateを返す"], 2, "純粋な遷移として不変条件を守る。外部同期は別の境界。H18へ。"]], [["共通初日が欠損の銘柄を今回の仕様でどう比較する？", ["初日を0とする", "次の有効日へ黙ってずらす", "基準化不可と明示する"], 2, "共通基準日の契約を保つ。H21へ。"], ["useMemoを取り除いたときの望ましい性質は？", ["結果の正しさは変わらない", "選択状態が初期化される", "エラーを起こしてよい"], 0, "memoは再計算可能な値の最適化であり状態保存ではない。H23へ。"], ["比較上限3件に達したときの正しい操作は？", ["すべての比較ボタンを無効化", "未選択の追加を止め、選択済みは解除可能にする", "自動的に最初の1件を消す"], 1, "上限と解除の回復手段を両立する仕様。H18・H24へ。"]], [["UIテストで利用者の操作に近い取得方法は？", ["DOMの3番目のdiv", "コンポーネントの内部state", "roleとアクセシブル名"], 2, "利用者が認識する役割とラベルを基準にする。H27へ。"], ["競合テストの最も強い確認は？", ["abort関数が呼ばれたことだけ", "Aが後着しても表示がBのままであること", "1000ms待ったこと"], 1, "内部の呼び出しより観察可能な契約を検証する。H28へ。"], ["型検査・UIテスト・ビルドの関係は？", ["別々の保証なのでそれぞれ実行する", "build成功ですべて代替できる", "UIが見えれば不要"], 0, "型、動作、生成物の検証は別の観点。H29へ。"]]], "downloads": {"model": {"name": "model.ts", "content": "export type Kind = \"equity\" | \"etf\";\nexport type Point = Readonly\u003c{ date: string; close: number | null }>;\nexport type Quote = Readonly\u003c{\n  id: string;\n  symbol: string;\n  name: string;\n  kind: Kind;\n  currency: \"USD\";\n  price: number | null;\n  previousClose: number | null;\n  history: readonly Point[];\n}>;\nexport type Filter = Readonly\u003c{ query: string; kind: Kind | \"all\" }>;\nexport type Sort = Readonly\u003c{\n  key: \"symbol\" | \"price\" | \"changePct\";\n  direction: \"asc\" | \"desc\";\n}>;\n// H04でRemote\u003cT>をここに追加する。\n"}, "fixture": {"name": "quotes.json", "content": "[\n  {\n    \"id\": \"ALFA\",\n    \"symbol\": \"ALFA\",\n    \"name\": \"Alpha Systems\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 110,\n    \"previousClose\": 108,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 100\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 102\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 104\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 108\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 110\n      }\n    ]\n  },\n  {\n    \"id\": \"BETA\",\n    \"symbol\": \"BETA\",\n    \"name\": \"Beta Works\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 78,\n    \"previousClose\": 79,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 80\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 82\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 81\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 79\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 78\n      }\n    ]\n  },\n  {\n    \"id\": \"GAMMA\",\n    \"symbol\": \"GAMMA\",\n    \"name\": \"Gamma Labs\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 60,\n    \"previousClose\": 60,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 61\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 60\n      }\n    ]\n  },\n  {\n    \"id\": \"DELTA\",\n    \"symbol\": \"DELTA\",\n    \"name\": \"Delta Industries\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 126,\n    \"previousClose\": 124,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 120\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 118\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 122\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 124\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 126\n      }\n    ]\n  },\n  {\n    \"id\": \"ECHO\",\n    \"symbol\": \"ECHO\",\n    \"name\": \"Echo Services\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 55,\n    \"previousClose\": 54,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 50\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 51\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": null\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 54\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 55\n      }\n    ]\n  },\n  {\n    \"id\": \"FOXT\",\n    \"symbol\": \"FOXT\",\n    \"name\": \"Foxt Broad Index\",\n    \"kind\": \"etf\",\n    \"currency\": \"USD\",\n    \"price\": 206,\n    \"previousClose\": 204,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 200\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 202\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 201\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 204\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 206\n      }\n    ]\n  },\n  {\n    \"id\": \"GOLF\",\n    \"symbol\": \"GOLF\",\n    \"name\": \"Golf Technology Basket\",\n    \"kind\": \"etf\",\n    \"currency\": \"USD\",\n    \"price\": 160,\n    \"previousClose\": 157,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 150\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 153\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 155\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 157\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 160\n      }\n    ]\n  },\n  {\n    \"id\": \"HOTEL\",\n    \"symbol\": \"HOTEL\",\n    \"name\": \"Hotel Research\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": null,\n    \"previousClose\": 43,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 40\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 41\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 42\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 43\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": null\n      }\n    ]\n  }\n]"}, "parser": {"name": "parseQuotes.ts", "content": "import type { Point, Quote } from \"../domain/model\";\nfunction isRecord(x: unknown): x is Record\u003cstring, unknown> {\n  return typeof x === \"object\" && x !== null && !Array.isArray(x);\n}\nfunction isPrice(x: unknown): x is number | null {\n  return x === null || (typeof x === \"number\" && Number.isFinite(x) && x > 0);\n}\nfunction isText(x: unknown): x is string {\n  return typeof x === \"string\" && x.trim().length > 0;\n}\nfunction isDate(x: unknown): x is string {\n  if (typeof x !== \"string\" || !/^\\d{4}-\\d{2}-\\d{2}$/.test(x)) return false;\n  const d = new Date(x + \"T00:00:00Z\");\n  return Number.isFinite(d.getTime()) && d.toISOString().slice(0, 10) === x;\n}\nfunction isPoint(x: unknown): x is Point {\n  return isRecord(x) && isDate(x.date) && isPrice(x.close);\n}\nfunction parseQuote(x: unknown, row: number): Quote {\n  if (!isRecord(x) || !isText(x.id) || !isText(x.symbol) || !isText(x.name)\n      || (x.kind !== \"equity\" && x.kind !== \"etf\") || x.currency !== \"USD\"\n      || !isPrice(x.price) || !isPrice(x.previousClose)\n      || !Array.isArray(x.history)) {\n    throw new Error(`row ${row}: invalid quote`);\n  }\n  const history: Point[] = x.history.map((p: unknown, i: number) => {\n    if (!isPoint(p)) throw new Error(`row ${row}, point ${i}: invalid point`);\n    return { date: p.date, close: p.close };\n  });\n  for (let i = 1; i \u003c history.length; i++) {\n    const previous = history[i - 1];\n    const current = history[i];\n    if (previous && current && previous.date >= current.date)\n      throw new Error(`row ${row}: dates must be unique and ascending`);\n  }\n  const last = history[history.length - 1];\n  const previous = history[history.length - 2];\n  if (last && last.close !== x.price)\n    throw new Error(`row ${row}: price does not match last close`);\n  if (previous && previous.close !== x.previousClose)\n    throw new Error(`row ${row}: previousClose mismatch`);\n  return { id: x.id, symbol: x.symbol, name: x.name, kind: x.kind,\n    currency: x.currency, price: x.price, previousClose: x.previousClose, history };\n}\nexport function parseQuotes(raw: unknown): readonly Quote[] {\n  if (!Array.isArray(raw)) throw new Error(\"Expected a quote array\");\n  const ids = new Set\u003cstring>();\n  const symbols = new Set\u003cstring>();\n  return raw.map((x: unknown, i: number) => {\n    const q = parseQuote(x, i);\n    if (ids.has(q.id) || symbols.has(q.symbol))\n      throw new Error(`row ${i}: duplicate id or symbol`);\n    ids.add(q.id); symbols.add(q.symbol);\n    return q;\n  });\n}\n"}, "seed": {"name": "seed.ts", "content": "import type { Quote } from \"../domain/model\";\nexport const seed = [\n  {\n    \"id\": \"ALFA\",\n    \"symbol\": \"ALFA\",\n    \"name\": \"Alpha Systems\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 110,\n    \"previousClose\": 108,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 100\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 102\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 104\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 108\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 110\n      }\n    ]\n  },\n  {\n    \"id\": \"BETA\",\n    \"symbol\": \"BETA\",\n    \"name\": \"Beta Works\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 78,\n    \"previousClose\": 79,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 80\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 82\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 81\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 79\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 78\n      }\n    ]\n  },\n  {\n    \"id\": \"GAMMA\",\n    \"symbol\": \"GAMMA\",\n    \"name\": \"Gamma Labs\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 60,\n    \"previousClose\": 60,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 61\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 60\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 60\n      }\n    ]\n  },\n  {\n    \"id\": \"DELTA\",\n    \"symbol\": \"DELTA\",\n    \"name\": \"Delta Industries\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 126,\n    \"previousClose\": 124,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 120\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 118\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 122\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 124\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 126\n      }\n    ]\n  },\n  {\n    \"id\": \"ECHO\",\n    \"symbol\": \"ECHO\",\n    \"name\": \"Echo Services\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": 55,\n    \"previousClose\": 54,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 50\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 51\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": null\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 54\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 55\n      }\n    ]\n  },\n  {\n    \"id\": \"FOXT\",\n    \"symbol\": \"FOXT\",\n    \"name\": \"Foxt Broad Index\",\n    \"kind\": \"etf\",\n    \"currency\": \"USD\",\n    \"price\": 206,\n    \"previousClose\": 204,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 200\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 202\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 201\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 204\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 206\n      }\n    ]\n  },\n  {\n    \"id\": \"GOLF\",\n    \"symbol\": \"GOLF\",\n    \"name\": \"Golf Technology Basket\",\n    \"kind\": \"etf\",\n    \"currency\": \"USD\",\n    \"price\": 160,\n    \"previousClose\": 157,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 150\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 153\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 155\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 157\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": 160\n      }\n    ]\n  },\n  {\n    \"id\": \"HOTEL\",\n    \"symbol\": \"HOTEL\",\n    \"name\": \"Hotel Research\",\n    \"kind\": \"equity\",\n    \"currency\": \"USD\",\n    \"price\": null,\n    \"previousClose\": 43,\n    \"history\": [\n      {\n        \"date\": \"2026-09-07\",\n        \"close\": 40\n      },\n      {\n        \"date\": \"2026-09-08\",\n        \"close\": 41\n      },\n      {\n        \"date\": \"2026-09-09\",\n        \"close\": 42\n      },\n      {\n        \"date\": \"2026-09-10\",\n        \"close\": 43\n      },\n      {\n        \"date\": \"2026-09-11\",\n        \"close\": null\n      }\n    ]\n  }\n] satisfies readonly Quote[];\n"}}}</script><script>
+(() => {
+  'use strict';
+  const data = JSON.parse(document.getElementById('course-data').textContent);
+  const KEY = 'ts-react-course-v1';
+  const initial = () => ({version:1, done:{}, notes:{}, answers:{}, graded:{}, scores:{}});
+  let state = initial();
+  let timer;
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  function toast(message) {
+    const box = $('#toast'); box.textContent = message; box.style.display = 'block';
+    clearTimeout(timer); timer = setTimeout(() => box.style.display = 'none', 3500);
+  }
+  function normalize(x) {
+    if (!x || typeof x !== 'object' || x.version !== 1) throw new Error('対応していない進捗ファイルです。');
+    const s = initial();
+    for (let n=1; n<=30; n++) {
+      if (x.done?.[n] === true) s.done[n] = true;
+      if (typeof x.notes?.[n] === 'string') s.notes[n] = x.notes[n].slice(0,100000);
+    }
+    for (let c=0; c<6; c++) {
+      if (x.graded?.[c] === true) s.graded[c] = true;
+      for (let q=0; q<3; q++) {
+        const k = `${c}-${q}`, a = x.answers?.[k];
+        if (Number.isInteger(a) && a>=0 && a<3) s.answers[k] = a;
+      }
+    }
+    for (let i=0; i<5; i++) {
+      const v=x.scores?.[i];
+      if (typeof v==='number' && Number.isFinite(v)) s.scores[i] = Math.max(0,Math.min(20,v));
+    }
+    return s;
+  }
+  try {
+    const raw=localStorage.getItem(KEY);
+    if (raw) state=normalize(JSON.parse(raw));
+  } catch {
+    $('#storageStatus').textContent='保存データを読めませんでした。進捗JSONを読み込むか、そのまま学習を続けられます。';
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+      $('#storageStatus').textContent='進捗とメモをこのブラウザーに保存しました。移動前はJSONを書き出してください。';
+    } catch {
+      $('#storageStatus').textContent='この環境では保存できません。進捗を書き出して保管してください。';
+    }
+  }
+  function progress() {
+    const count=Object.values(state.done).filter(Boolean).length;
+    $('#progress').value=count;
+    $('#progressText').textContent=`${count} / 30 コマ完了`;
+    $$('.lesson-link').forEach(a=>a.classList.toggle('done',!!state.done[a.dataset.n]));
+    const score=Object.values(state.scores).reduce((a,b)=>a+b,0);
+    $('#rubricTotal').textContent=`自己採点：${score} / 100${score>=80?' — 境界条件と最終実技も確認してください。':''}`;
+  }
+  function clearGrade(c) {
+    delete state.graded[c];
+    for(let q=0;q<3;q++) $(`#feedback-${c}-${q}`).hidden=true;
+    $(`#result-${c}`).textContent='';
+  }
+  function grade(c,announce=true) {
+    let correct=0, unanswered=0;
+    data.quizzes[c].forEach((item,q)=>{
+      const chosen=state.answers[`${c}-${q}`];
+      const ok=chosen===item[2];
+      if(chosen===undefined) unanswered++;
+      if(ok) correct++;
+      const box=$(`#feedback-${c}-${q}`);
+      box.hidden=false; box.classList.toggle('wrong',!ok);
+      box.textContent=(ok?'正解。':chosen===undefined?'未回答。':'不正解。')+` 正答：${item[1][item[2]]}。${item[3]}`;
+    });
+    $(`#result-${c}`).textContent=`${correct} / 3 正解`+(unanswered?`（未回答${unanswered}問）`:'')+(correct===3?'。実装の完了条件も確認できれば、この章は通過です。':'。該当コマで反例を確認して再挑戦してください。');
+    state.graded[c]=true;
+    if(announce) save();
+  }
+  function restore() {
+    $$('.completion input').forEach(el=>el.checked=!!state.done[el.dataset.n]);
+    $$('.notes').forEach(el=>el.value=state.notes[el.dataset.n]||'');
+    $$('input[type=radio]').forEach(el=>el.checked=state.answers[el.name.slice(2)]===Number(el.value));
+    $$('[data-score]').forEach(el=>el.value=state.scores[el.dataset.score]||0);
+    for(let c=0;c<6;c++) {
+      if(state.graded[c]) grade(c,false);
+      else {for(let q=0;q<3;q++) $(`#feedback-${c}-${q}`).hidden=true;$(`#result-${c}`).textContent='';}
+    }
+    progress();
+  }
+  restore();
+  $$('.completion input').forEach(el=>el.addEventListener('change',()=>{state.done[el.dataset.n]=el.checked;save();progress();}));
+  $$('.notes').forEach(el=>el.addEventListener('input',()=>{state.notes[el.dataset.n]=el.value;save();}));
+  $$('input[type=radio]').forEach(el=>el.addEventListener('change',()=>{
+    const key=el.name.slice(2); state.answers[key]=Number(el.value);clearGrade(Number(key.split('-')[0]));save();
+  }));
+  $$('[data-score]').forEach(el=>el.addEventListener('input',()=>{
+    const n=Number(el.value);const v=Number.isFinite(n)?Math.max(0,Math.min(20,n)):0;
+    state.scores[el.dataset.score]=v;save();progress();
+  }));
+  $$('[data-score]').forEach(el=>el.addEventListener('change',()=>el.value=state.scores[el.dataset.score]||0));
+  $$('.grade').forEach(el=>el.addEventListener('click',()=>grade(Number(el.dataset.chapter))));
+  function download(name,content,mime='text/plain;charset=utf-8') {
+    const url=URL.createObjectURL(new Blob([content],{type:mime}));
+    const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  $$('[data-download]').forEach(el=>el.addEventListener('click',()=>{
+    const f=data.downloads[el.dataset.download];download(f.name,f.content,f.name.endsWith('.json')?'application/json':'text/plain;charset=utf-8');
+  }));
+  $('#exportProgress').addEventListener('click',()=>download('typescript-react-progress.json',JSON.stringify(state,null,2),'application/json'));
+  $('#importProgress').addEventListener('click',()=>$('#progressFile').click());
+  $('#progressFile').addEventListener('change',async e=>{
+    const file=e.target.files[0];if(!file)return;
+    try {
+      if(file.size>4000000)throw new Error('ファイルが大きすぎます。');
+      const next=normalize(JSON.parse(await file.text()));
+      if(!confirm('現在の進捗・メモ・回答を、選んだファイルの内容に置き換えますか？'))return;
+      state=next;restore();save();toast('進捗を読み込みました。');
+    } catch(error) {toast(error instanceof Error?error.message:'読み込めませんでした。');}
+    finally {e.target.value='';}
+  });
+  $$('.copy').forEach(btn=>btn.addEventListener('click',async()=>{
+    const text=btn.parentElement.querySelector('code').textContent;
+    try {
+      if(navigator.clipboard?.writeText) await navigator.clipboard.writeText(text);
+      else {
+        const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.top='-9999px';document.body.append(t);t.select();
+        const ok=document.execCommand('copy');t.remove();if(!ok)throw new Error('copy');
+      }
+      btn.textContent='コピー済み';setTimeout(()=>btn.textContent='コピー',1500);
+    } catch {toast('自動コピーできません。コードを選択してコピーしてください。');}
+  }));
+  const searchIndex=new Map($$('.lesson').map(el=>[el.dataset.n,el.textContent.toLowerCase()]));
+  function search() {
+    const terms=$('#search').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let found=0;
+    $$('.lesson').forEach(el=>{
+      const match=terms.every(t=>searchIndex.get(el.dataset.n).includes(t));
+      el.classList.toggle('hide',!match);if(match)found++;
+      $(`.lesson-link[data-n="${el.dataset.n}"]`).classList.toggle('hide',!match);
+    });
+    $('#searchCount').textContent=terms.length?`${found} / 30 コマが一致。空欄で全コマを表示。`:'';
+  }
+  $('#search').addEventListener('input',search);
+  // 章見出し・付録は検索時にも残し、本文と目次のコマだけを絞る。
+  $$('nav a').forEach(a=>a.addEventListener('click',()=>{
+    if(a.classList.contains('lesson-link')){$('#search').value='';search();}
+  }));
+  $$('.sectionnav a').forEach(a=>a.addEventListener('click',()=>{$('#search').value='';search();}));
+  $('#navToggle').addEventListener('click',()=>{
+    const open=$('#nav').classList.toggle('expanded');$('#navToggle').setAttribute('aria-expanded',String(open));$('#navToggle').textContent=open?'目次を閉じる':'目次を開く';
+  });
+  let opened=[];
+  window.addEventListener('beforeprint',()=>{opened=$$('details').filter(d=>!d.open);opened.forEach(d=>d.open=true);});
+  window.addEventListener('afterprint',()=>{opened.forEach(d=>d.open=false);opened=[];});
+  $('#print').addEventListener('click',()=>window.print());
+})();
+</script></body></html>

@@ -1,0 +1,13 @@
+# Dependencies and generated build output
+**/node_modules/
+**/dist/
+.tools/
+
+# Local environment files
+**/.env.local
+**/.env.*.local
+
+# Logs and editor/OS metadata
+*.log
+.DS_Store
+.vscode/
