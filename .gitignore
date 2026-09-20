@@ -13,6 +13,7 @@ dist-ssr/
 .DS_Store
 .vscode/
 .idea/
+AGENTS.md
 *.suo
 *.ntvs*
 *.njsproj
